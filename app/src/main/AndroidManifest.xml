@@ -20,7 +20,8 @@
         <activity android:name=".frm_vb_net" />
         <activity android:name=".frm_cisco" />
         <activity android:name=".frm_comp_essential" />
-        <activity android:name=".frm_mysql"></activity>
+        <activity android:name=".frm_mysql" />
+        <activity android:name=".QuestionHandler"></activity>
     </application>
 
 </manifest>
