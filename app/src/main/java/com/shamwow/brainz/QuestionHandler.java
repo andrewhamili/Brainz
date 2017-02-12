@@ -1,5 +1,7 @@
 package com.shamwow.brainz;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +22,7 @@ public class QuestionHandler extends AppCompatActivity {
     Button btn_function;
     Spinner spinnersubj;
     EditText q_questions,q_answer,q_id;
-    RadioButton rb_add,rb_del,rb_update;
+    RadioButton rb_add,rb_del,rb_update,rb_view;
     RadioGroup rg_functions;
     TextView tv_no;
 
@@ -41,6 +43,7 @@ public class QuestionHandler extends AppCompatActivity {
         rb_add = (RadioButton)findViewById(R.id.rb_add);
         rb_del = (RadioButton)findViewById(R.id.rb_delete);
         rb_update = (RadioButton)findViewById(R.id.rb_update);
+        rb_view = (RadioButton)findViewById(R.id.rb_view);
 
         tv_no = (TextView)findViewById(R.id.tv_no);
 
@@ -89,6 +92,15 @@ public class QuestionHandler extends AppCompatActivity {
                 tv_no.setVisibility(View.VISIBLE);
             }
         });
+        rb_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_function.setText("View");
+                q_id.setVisibility(View.GONE);
+                tv_no.setVisibility(View.GONE);
+
+            }
+        });
 
 
     }
@@ -127,9 +139,34 @@ public class QuestionHandler extends AppCompatActivity {
                         Toast.makeText(QuestionHandler.this,"Data not Updated",Toast.LENGTH_LONG).show();
 
 
+                } else if(btn_function.getText().toString()=="Delete") {
+                    Integer deletedRows = myDB.deletequestion(q_id.getText().toString());
+                    if (deletedRows > 0)
+
+                        Toast.makeText(QuestionHandler.this,"Data Deleted",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(QuestionHandler.this,"Data not Deleted",Toast.LENGTH_LONG).show();
+
+                } else if (btn_function.getText().toString()=="View"){
+                    Cursor show_data =  myDB.get_all_questions();
 
 
+                    if (show_data.getCount() ==0){
 
+                        showMessage("Error","No Data Found");
+                        return;
+
+                    }
+
+                    StringBuffer buffer = new StringBuffer();
+                    while (show_data.moveToNext()){
+                        buffer.append("Question ID: " +show_data.getString(0)+"\n");
+                        buffer.append("Subject: " +show_data.getString(1)+"\n");
+                        buffer.append("Question: " +show_data.getString(2)+"\n");
+                        buffer.append("Answer: " +show_data.getString(3)+"\n\n");
+                    }
+
+                    showMessage("Questions",buffer.toString());
                 }
 
 
@@ -137,7 +174,19 @@ public class QuestionHandler extends AppCompatActivity {
 
             }
         });
+
+
     }
+
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+
+    }
+
 
 
 

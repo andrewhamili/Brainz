@@ -2,6 +2,7 @@ package com.shamwow.brainz;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -73,6 +74,20 @@ public class databasecontroller extends SQLiteOpenHelper {
 
         db.update(QUESTION_TABLE,contentValues, "q_id = ?",new String[] { q_id } );
         return true;
+    }
+
+    public Integer deletequestion(String q_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(QUESTION_TABLE,"q_id = ?",new String[] {q_id});
+
+    }
+
+    public Cursor get_all_questions(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor show_questions = db.rawQuery("SELECT * FROM "+ QUESTION_TABLE,null);
+        return show_questions;
+
     }
 
 

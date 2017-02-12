@@ -32,8 +32,8 @@
         android:inputType="textMultiLine"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.33"
+        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toTopOf="@+id/textView4" />
 
     <TextView
@@ -44,11 +44,11 @@
         android:layout_marginRight="8dp"
         android:text="Subject:"
         android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="Subject:"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_subjs" />
 
     <TextView
@@ -59,11 +59,11 @@
         android:layout_marginRight="8dp"
         android:text="Question:"
         android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="Question:"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="9dp"
         app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions" />
 
     <Spinner
@@ -71,13 +71,13 @@
         android:layout_width="371dp"
         android:layout_height="41dp"
         android:ems="10"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="41dp"
         app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.33" />
 
     <EditText
         android:id="@+id/qh_tv_questions"
@@ -104,8 +104,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_function" />
 
     <TextView
@@ -116,7 +115,7 @@
         android:layout_marginRight="8dp"
         android:text="Answer:"
         android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="Answer:"
@@ -127,7 +126,7 @@
         android:id="@+id/btn_function"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="47dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="Functions"
@@ -149,37 +148,44 @@
 
     <RadioGroup
         android:id="@+id/rg_functions"
-        android:layout_width="80dp"
-        android:layout_height="89dp"
-        android:layout_marginBottom="0dp"
+        android:layout_width="105dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="120dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="120dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_no"
-        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintLeft_toRightOf="@+id/textView7"
         app:layout_constraintRight_toRightOf="parent">
 
         <RadioButton
             android:id="@+id/rb_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
             android:text="Delete"
+            app:layout_constraintHorizontal_bias="0.11"
             app:layout_constraintVertical_bias="0.39999998" />
 
         <RadioButton
+            android:id="@+id/rb_view"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="View"
+            app:layout_constraintHorizontal_bias="0.37" />
+
+        <RadioButton
             android:id="@+id/rb_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
             android:text="Add" />
 
         <RadioButton
             android:id="@+id/rb_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
             android:text="Update" />
+
     </RadioGroup>
 
 
