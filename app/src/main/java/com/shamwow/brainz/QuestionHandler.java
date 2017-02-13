@@ -34,7 +34,7 @@ public class QuestionHandler extends AppCompatActivity {
 
         btn_function = (Button) findViewById(R.id.btn_function);
 
-        q_questions = (EditText) findViewById(R.id.qh_tv_questions);
+        q_questions = (EditText) findViewById(R.id.qh_tv_questions_a);
         q_answer = (EditText) findViewById(R.id.qh_tv_answers);
         q_id = (EditText)findViewById(R.id.qh_tv_id);
         spinnersubj = (Spinner) findViewById(R.id.spinner_subjs);

@@ -1,205 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.shamwow.brainz.QuestionHandler">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/sc">
 
-    <TextView
-        android:id="@+id/tv_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="#:"
-        android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="#:"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/qh_tv_id" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/qh_tv_id"
-        android:layout_width="371dp"
-        android:layout_height="41dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="371dp"
+            android:layout_height="41sp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Subject:"
-        android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.024"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Subject:"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_subjs" />
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="#:"
+            android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="#:"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/qh_tv_id" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Question:"
-        android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Question:"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions" />
+        <EditText
+            android:id="@+id/qh_tv_id"
+            android:layout_width="371dp"
+            android:layout_height="41dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="7dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp" />
 
-    <Spinner
-        android:id="@+id/spinner_subjs"
-        android:layout_width="371dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Subject:"
+            android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.037"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Subject:"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinner_subjs" />
 
-    <Spinner
-        android:id="@+id/sp_viewchoices"
-        android:layout_width="100sp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="38dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        app:layout_constraintBottom_toTopOf="@+id/tv_no"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintLeft_toRightOf="@+id/rg_functions"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Question Choices:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions_a"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Question Choices:" />
 
-    <EditText
-        android:id="@+id/qh_tv_questions"
-        android:layout_width="371dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2" />
+        <Spinner
+            android:id="@+id/spinner_subjs"
+            android:layout_width="371dp"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.5" />
 
-    <EditText
-        android:id="@+id/qh_tv_answers"
-        android:layout_width="371dp"
-        android:layout_height="41dp"
-        android:layout_marginRight="8dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_function" />
+        <Spinner
+            android:id="@+id/sp_viewchoices"
+            android:layout_width="100sp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="31dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            app:layout_constraintBottom_toTopOf="@+id/tv_no"
+            app:layout_constraintHorizontal_bias="0.152"
+            app:layout_constraintLeft_toRightOf="@+id/rg_functions"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Answer:"
-        android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Answer:"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/qh_tv_answers" />
+        <EditText
+            android:id="@+id/qh_tv_questions_a"
+            android:layout_width="371dp"
+            android:layout_height="41sp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-    <Button
-        android:id="@+id/btn_function"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Functions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="371dp"
+            android:layout_height="41sp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="96dp"
-        android:layout_height="51dp"
-        android:text="What to do?"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_no" />
+        <EditText
+            android:id="@+id/qh_tv_answers"
+            android:layout_width="371dp"
+            android:layout_height="41dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_function"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/rg_functions"
-        android:layout_width="105dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="120dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_no"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintLeft_toRightOf="@+id/textView7"
-        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Answer:"
+            android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.024"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Answer:"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/qh_tv_answers" />
 
-        <RadioButton
-            android:id="@+id/rb_delete"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Delete"
-            app:layout_constraintHorizontal_bias="0.11"
-            app:layout_constraintVertical_bias="0.39999998" />
+        <Button
+            android:id="@+id/btn_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-35dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Functions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
 
-        <RadioButton
-            android:id="@+id/rb_view"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="View"
-            app:layout_constraintHorizontal_bias="0.37" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="96dp"
+            android:layout_height="51dp"
+            android:text="What to do?"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="21dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_no" />
 
-        <RadioButton
-            android:id="@+id/rb_add"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Add" />
+        <RadioGroup
+            android:id="@+id/rg_functions"
+            android:layout_width="105dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="-24dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="120dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_no"
+            app:layout_constraintHorizontal_bias="0.035"
+            app:layout_constraintLeft_toRightOf="@+id/textView7"
+            app:layout_constraintRight_toRightOf="parent">
 
-        <RadioButton
-            android:id="@+id/rb_update"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Update" />
+            <RadioButton
+                android:id="@+id/rb_delete"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Delete"
+                app:layout_constraintHorizontal_bias="0.11"
+                app:layout_constraintVertical_bias="0.39999998" />
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rb_view"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="View"
+                app:layout_constraintHorizontal_bias="0.37" />
+
+            <RadioButton
+                android:id="@+id/rb_add"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Add" />
+
+            <RadioButton
+                android:id="@+id/rb_update"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Update" />
+
+        </RadioGroup>
+    </android.support.constraint.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+
+</ScrollView>
+
+
+
+</RelativeLayout>
