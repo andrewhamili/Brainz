@@ -77,7 +77,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.33" />
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/sp_viewchoices"
+        android:layout_width="100sp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        app:layout_constraintBottom_toTopOf="@+id/tv_no"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintLeft_toRightOf="@+id/rg_functions"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
         android:id="@+id/qh_tv_questions"

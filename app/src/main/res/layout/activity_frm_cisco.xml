@@ -16,9 +16,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
+        android:textSize="36sp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:id="@+id/cic_rg_choices"
+        android:layout_width="300sp"
+        android:layout_height="150sp"
+        android:layout_below="@+id/cis_tv_question"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:textSize="36sp"/>
+        android:layout_marginTop="59dp">
+
+        <RadioButton
+            android:id="@+id/cis_rb_a"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/cis_rb_b"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/cis_rb_c"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:text="RadioButton" />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/cis_tv_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="88dp"
+        android:text="Question"
+        android:textSize="25sp"/>
+
 
 </RelativeLayout>

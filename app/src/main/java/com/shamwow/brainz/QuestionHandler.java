@@ -20,7 +20,7 @@ public class QuestionHandler extends AppCompatActivity {
 
     private String array_spinner[];
     Button btn_function;
-    Spinner spinnersubj;
+    Spinner spinnersubj,spinnerchoose;
     EditText q_questions,q_answer,q_id;
     RadioButton rb_add,rb_del,rb_update,rb_view;
     RadioGroup rg_functions;
@@ -38,6 +38,7 @@ public class QuestionHandler extends AppCompatActivity {
         q_answer = (EditText) findViewById(R.id.qh_tv_answers);
         q_id = (EditText)findViewById(R.id.qh_tv_id);
         spinnersubj = (Spinner) findViewById(R.id.spinner_subjs);
+        spinnerchoose = (Spinner)findViewById(R.id.sp_viewchoices);
 
         rg_functions = (RadioGroup)findViewById(R.id.rg_functions);
         rb_add = (RadioButton)findViewById(R.id.rb_add);
@@ -47,6 +48,9 @@ public class QuestionHandler extends AppCompatActivity {
 
         tv_no = (TextView)findViewById(R.id.tv_no);
 
+        spinnerchoose.setVisibility(View.GONE);
+        q_id.setVisibility(View.GONE);
+        tv_no.setVisibility(View.GONE);
 
         spinnerloader();
         radiooo();
@@ -62,6 +66,7 @@ public class QuestionHandler extends AppCompatActivity {
         array_spinner[3] = "Computer Essential";
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, array_spinner);
         spinnersubj.setAdapter(adapter);
+        spinnerchoose.setAdapter(adapter);
     }
 
     public void radiooo(){
@@ -70,6 +75,7 @@ public class QuestionHandler extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 btn_function.setText("Add");
+                spinnerchoose.setVisibility(View.GONE);
                 q_id.setVisibility(View.GONE);
                 tv_no.setVisibility(View.GONE);
             }
@@ -81,6 +87,7 @@ public class QuestionHandler extends AppCompatActivity {
                 btn_function.setText("Update");
                 q_id.setVisibility(View.VISIBLE);
                 tv_no.setVisibility(View.VISIBLE);
+                spinnerchoose.setVisibility(View.GONE);
             }
         });
 
@@ -90,12 +97,14 @@ public class QuestionHandler extends AppCompatActivity {
                 btn_function.setText("Delete");
                 q_id.setVisibility(View.VISIBLE);
                 tv_no.setVisibility(View.VISIBLE);
+                spinnerchoose.setVisibility(View.GONE);
             }
         });
         rb_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_function.setText("View");
+                spinnerchoose.setVisibility(View.VISIBLE);
                 q_id.setVisibility(View.GONE);
                 tv_no.setVisibility(View.GONE);
 
@@ -148,8 +157,7 @@ public class QuestionHandler extends AppCompatActivity {
                         Toast.makeText(QuestionHandler.this,"Data not Deleted",Toast.LENGTH_LONG).show();
 
                 } else if (btn_function.getText().toString()=="View"){
-                    Cursor show_data =  myDB.get_all_questions();
-
+                    Cursor show_data =  myDB.get_specific_questions(spinnerchoose.getSelectedItem().toString());
 
                     if (show_data.getCount() ==0){
 
