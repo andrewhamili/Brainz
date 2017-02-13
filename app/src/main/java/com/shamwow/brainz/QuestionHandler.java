@@ -21,10 +21,11 @@ public class QuestionHandler extends AppCompatActivity {
     private String array_spinner[];
     Button btn_function;
     Spinner spinnersubj,spinnerchoose;
-    EditText q_questions,q_answer,q_id;
+    EditText q_a,q_b,q_c,q_answer,q_id;
     RadioButton rb_add,rb_del,rb_update,rb_view;
     RadioGroup rg_functions;
     TextView tv_no;
+    String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,10 @@ public class QuestionHandler extends AppCompatActivity {
 
         btn_function = (Button) findViewById(R.id.btn_function);
 
-        q_questions = (EditText) findViewById(R.id.qh_tv_questions_a);
+        q_a = (EditText) findViewById(R.id.qh_a);
+        q_b = (EditText)findViewById(R.id.qh_b);
+        q_c = (EditText)findViewById(R.id.qh_c);
+
         q_answer = (EditText) findViewById(R.id.qh_tv_answers);
         q_id = (EditText)findViewById(R.id.qh_tv_id);
         spinnersubj = (Spinner) findViewById(R.id.spinner_subjs);
@@ -113,7 +117,13 @@ public class QuestionHandler extends AppCompatActivity {
 
 
     }
-
+//
+//      contentValues.put(Q_COL2, q_subject);
+//        contentValues.put(Q_COL3, q_answer);
+//        contentValues.put(Q_COL4, q_IsFinished);
+//        contentValues.put(Q_COL5,q_q_a);
+//        contentValues.put(Q_COL5,q_q_b);
+//        contentValues.put(Q_COL5,q_q_c);
 
     public void data_manipulation() {
 
@@ -123,11 +133,10 @@ public class QuestionHandler extends AppCompatActivity {
 
                 if (btn_function.getText().toString()=="Add"){
 
+                   status = "false";
 
-
-                    boolean isInserted = myDB.insertingquestions(spinnersubj.getSelectedItem().toString(),
-                            q_questions.getText().toString(),
-                            q_answer.getText().toString());
+                    boolean isInserted = myDB.insertingquestions(spinnersubj.getSelectedItem().toString(),q_answer.getText().toString(),
+                            status,q_a.getText().toString(),q_b.getText().toString(),q_c.getText().toString());
 
                     if (isInserted == true)
                         Toast.makeText(QuestionHandler.this, "Data Inserted", Toast.LENGTH_LONG).show();
@@ -135,11 +144,10 @@ public class QuestionHandler extends AppCompatActivity {
                         Toast.makeText(QuestionHandler.this, "Data not Inserted", Toast.LENGTH_LONG).show();
 
                 } else if (btn_function.getText().toString()=="Update"){
-
+                    status = "false";
                     boolean isUpdated = myDB.updatequestions(q_id.getText().toString(),
                             spinnersubj.getSelectedItem().toString(),
-                            q_questions.getText().toString(),
-                            q_answer.getText().toString());
+                            q_answer.getText().toString(),status ,q_a.getText().toString(),q_b.getText().toString(),q_c.getText().toString());
 
                     if (isUpdated == true)
 
@@ -171,7 +179,8 @@ public class QuestionHandler extends AppCompatActivity {
                         buffer.append("Question ID: " +show_data.getString(0)+"\n");
                         buffer.append("Subject: " +show_data.getString(1)+"\n");
                         buffer.append("Question: " +show_data.getString(2)+"\n");
-                        buffer.append("Answer: " +show_data.getString(3)+"\n\n");
+                        buffer.append("Answer: " +show_data.getString(3)+"\n");
+                        buffer.append("Status: " +show_data.getString(4)+"\n\n");
                     }
 
                     showMessage("Questions",buffer.toString());

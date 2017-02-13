@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/qh_c"
             android:layout_width="371dp"
             android:layout_height="41sp"
             android:ems="10"
@@ -27,7 +27,8 @@
             android:layout_marginBottom="9dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
 
         <TextView
             android:id="@+id/tv_no"
@@ -82,7 +83,7 @@
             android:layout_marginRight="8dp"
             android:text="Question Choices:"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/qh_tv_questions_a"
+            app:layout_constraintBottom_toTopOf="@+id/qh_a"
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -115,20 +116,20 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <EditText
-            android:id="@+id/qh_tv_questions_a"
+            android:id="@+id/qh_a"
             android:layout_width="371dp"
             android:layout_height="41sp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/editText"
+            app:layout_constraintBottom_toTopOf="@+id/qh_b"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/qh_b"
             android:layout_width="371dp"
             android:layout_height="41sp"
             android:ems="10"
@@ -136,10 +137,11 @@
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/editText3"
+            app:layout_constraintBottom_toTopOf="@+id/qh_c"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.33" />
 
         <EditText
             android:id="@+id/qh_tv_answers"

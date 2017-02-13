@@ -21,9 +21,11 @@ public class databasecontroller extends SQLiteOpenHelper {
     public static final String QUESTION_TABLE = "questions";
     public static final String Q_COL1 = "q_id";
     public static final String Q_COL2 = "q_subject";
-    public static final String Q_COL3 = "q_question";
-    public static final String Q_COL4 = "q_answer";
-    public static final String Q_COL5 = "q_IsFinished";
+    public static final String Q_COL3 = "q_answer";
+    public static final String Q_COL4 = "q_IsFinished";
+    public static final String Q_COL5 = "q_q_a";
+    public static final String Q_COL6 = "q_q_b";
+    public static final String Q_COL7 = "q_q_c";
 
     public static final String RESULTS_TABLE = "results";
     public static final String R_COL1 = "r_id";
@@ -35,7 +37,7 @@ public class databasecontroller extends SQLiteOpenHelper {
                 + Q_COL2 + " TEXT,"
                 + Q_COL3 + " TEXT,"
                 + Q_COL4 + " TEXT,"
-                + Q_COL5 + " TINYINT)";
+                + Q_COL5 + " TEXT)";
 
     public static final String ResultsCreate = "CREATE TABLE "
             + RESULTS_TABLE + "("
@@ -64,13 +66,17 @@ public class databasecontroller extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertingquestions(String q_subject, String q_question, String q_answer) {
+    public boolean insertingquestions(String q_subject, String q_answer, String q_IsFinished, String q_q_a,String q_q_b,String q_q_c) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(Q_COL2, q_subject);
-        contentValues.put(Q_COL3, q_question);
-        contentValues.put(Q_COL4, q_answer);
+        contentValues.put(Q_COL3, q_answer);
+        contentValues.put(Q_COL4, q_IsFinished);
+        contentValues.put(Q_COL5,q_q_a);
+        contentValues.put(Q_COL5,q_q_b);
+        contentValues.put(Q_COL5,q_q_c);
 
         long result = db.insert(QUESTION_TABLE, null, contentValues);
         if (result == -1)
@@ -95,15 +101,18 @@ public class databasecontroller extends SQLiteOpenHelper {
     }
 
 
-    public boolean updatequestions(String q_id, String q_subject, String q_question, String q_answer) {
+    public boolean updatequestions(String q_id,String q_subject, String q_answer, String q_IsFinished, String q_q_a,String q_q_b,String q_q_c) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(Q_COL1, q_id);
         contentValues.put(Q_COL2, q_subject);
-        contentValues.put(Q_COL3, q_question);
-        contentValues.put(Q_COL4, q_answer);
+        contentValues.put(Q_COL3, q_answer);
+        contentValues.put(Q_COL4, q_IsFinished);
+        contentValues.put(Q_COL5,q_q_a);
+        contentValues.put(Q_COL5,q_q_b);
+        contentValues.put(Q_COL5,q_q_c);
 
         db.update(QUESTION_TABLE, contentValues, "q_id = ?", new String[]{q_id});
         return true;
@@ -114,6 +123,12 @@ public class databasecontroller extends SQLiteOpenHelper {
 
         return db.delete(QUESTION_TABLE, "q_id = ?", new String[]{q_id});
 
+    }
+
+    public Cursor get_cisco_question(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor showciscoquestions = db.rawQuery("SELECT * FROM"+QUESTION_TABLE+" WHERE "+Q_COL2+"= 'Cisco' AND "+Q_COL4+"= 'true'", null );
+        return  showciscoquestions;
     }
 
 
