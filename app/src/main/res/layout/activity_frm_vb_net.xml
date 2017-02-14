@@ -8,15 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.shamwow.brainz.frm_vb_net">
+    tools:context="com.shamwow.brainz.frm_vb_net"
+    android:background="@drawable/bg_lyt_vb">
 
-    <TextView
-        android:text="VB.NET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:textSize="36sp"/>
 </RelativeLayout>

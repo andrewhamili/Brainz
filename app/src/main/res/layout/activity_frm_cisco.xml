@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.shamwow.brainz.frm_cisco"
-    android:background="@drawable/gamebackground_1">
+    android:background="@drawable/bg_lyt_cisco">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,16 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-            <TextView
-                android:text="Cisco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:textSize="36sp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="68dp" />
 
             <RadioGroup
                 android:id="@+id/cic_rg_choices"
@@ -63,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:text="Question"
                 android:textSize="25sp"
-                android:layout_alignTop="@+id/textView"
-                android:layout_alignStart="@+id/textView"
-                android:layout_marginTop="76dp" />
+                android:layout_marginTop="154dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
     </ScrollView>

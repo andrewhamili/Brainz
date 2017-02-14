@@ -9,16 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.shamwow.brainz.MainActivity"
-    android:background="@drawable/gamebackground_main">
+    android:background="@drawable/bgboot">
 
     <Button
         android:text="Settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_settings"
+        android:layout_marginBottom="30dp"
         android:layout_above="@+id/btn_exit"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="83dp"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -28,6 +28,7 @@
         android:id="@+id/btn_topics"
         android:layout_above="@+id/btn_settings"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="62dp"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_exit"
+        android:layout_marginBottom="126dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
