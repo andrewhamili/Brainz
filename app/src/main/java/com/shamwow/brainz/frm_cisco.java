@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindView;
@@ -16,14 +17,16 @@ public class frm_cisco extends AppCompatActivity {
     databasecontroller myDB;
     QuestionHandler qmsh;
     StringBuffer cha,chb,chc = new StringBuffer();
+    Cursor cursor;
 
     @BindView(R.id.cis_rb_a) RadioButton rb_a;
     @BindView(R.id.cis_rb_b) RadioButton rb_b;
-    @BindView(R.id.cis_rb_c)RadioButton rb_c;
-    @BindView(R.id.cis_tv_question)TextView tv_question;
-    @BindView(R.id.btn_cisco_submit)Button btn_submit;
+    @BindView(R.id.cis_rb_c) RadioButton rb_c;
+    @BindView(R.id.cis_tv_question) TextView tv_question;
+    @BindView(R.id.btn_cisco_submit) Button btn_submit;
+    @BindView(R.id.tv_test) TextView tv_test;
 
-    String ansstud;
+    String ansstud,answer;
 
 
     @Override
@@ -38,12 +41,12 @@ public class frm_cisco extends AppCompatActivity {
 
 
         get_questions();
-
+        answerme();
     }
 
     public void get_questions(){
 
-     Cursor cursor;
+
         cursor = myDB.get_cisco_question();
         if (cursor.moveToFirst()){
             do{
@@ -65,12 +68,42 @@ public class frm_cisco extends AppCompatActivity {
     }
 
     public void answerme(){
-        btn_submit.setOnClickListener(new View.OnClickListener() {
+
+        rb_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(frm_cisco.this, "Escolar", Toast.LENGTH_SHORT).show();
+
+                answer = rb_a.getText().toString();
+                tv_test.setText(answer);
             }
         });
 
-    }
+        rb_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer = rb_b.getText().toString();
+                tv_test.setText(answer);
+            }
+        });
+
+        rb_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer= rb_c.getText().toString();
+                tv_test.setText(answer);
+            }
+        });
+
+
+
+
+//
+//        int index = rg_cisco_choices.indexOfChild(findViewById(rg_cisco_choices.getCheckedRadioButtonId()));
+//        String ans = String.valueOf(index);
+//        cursor = myDB.get_answer(ans){
+
+        }
+
 }
+
+

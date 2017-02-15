@@ -11,7 +11,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:id="@+id/sc">
+    android:id="@+id/sc"
+    >
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,8 +20,8 @@
 
         <EditText
             android:id="@+id/qh_c"
-            android:layout_width="371dp"
-            android:layout_height="41sp"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:layout_marginRight="8dp"
@@ -30,11 +31,13 @@
             android:hint="Choice C:"
             android:layout_marginBottom="13dp"
             app:layout_constraintBottom_toTopOf="@+id/qh_tv_answers"
-            app:layout_constraintHorizontal_bias="0.333" />
+            app:layout_constraintHorizontal_bias="0.33"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/qh_tv_id"
-            android:layout_width="371dp"
+            android:layout_width="0dp"
             android:layout_height="41dp"
             android:layout_marginRight="8dp"
             android:ems="10"
@@ -45,8 +48,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintHorizontal_bias="0.5"
-            android:hint="#:"/>
+            android:hint="#:"
+            android:layout_marginStart="8dp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -61,24 +64,28 @@
             app:layout_constraintRight_toRightOf="parent"
             tools:text="Subject:"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/spinner_subjs" />
+            app:layout_constraintBottom_toTopOf="@+id/spinner_subjs"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <Spinner
             android:id="@+id/spinner_subjs"
-            android:layout_width="371dp"
+            android:layout_width="0dp"
             android:layout_height="41dp"
             android:ems="10"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintHorizontal_bias="0.33"
             android:layout_marginBottom="35dp"
-            app:layout_constraintBottom_toTopOf="@+id/qh_question" />
+            app:layout_constraintBottom_toTopOf="@+id/qh_question"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <Spinner
             android:id="@+id/sp_viewchoices"
-            android:layout_width="100sp"
+            android:layout_width="0dp"
             android:layout_height="41dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -86,13 +93,15 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/rg_functions"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="87dp"
-            app:layout_constraintBottom_toTopOf="@+id/qh_tv_id" />
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/qh_tv_id"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/qh_a"
-            android:layout_width="371dp"
-            android:layout_height="41sp"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:layout_marginBottom="10dp"
@@ -102,12 +111,14 @@
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintHorizontal_bias="0.33"
-            android:hint="Choice A:"/>
+            android:hint="Choice A:"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/qh_question"
-            android:layout_width="371dp"
-            android:layout_height="41sp"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:ems="10"
@@ -117,12 +128,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/qh_a" />
+            app:layout_constraintBottom_toTopOf="@+id/qh_a"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/qh_b"
-            android:layout_width="371dp"
-            android:layout_height="41sp"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:layout_marginRight="8dp"
@@ -133,13 +146,13 @@
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
             android:hint="Choice B:"
-            />
+            android:layout_marginStart="8dp" />
 
         <EditText
             android:id="@+id/qh_tv_answers"
-            android:layout_width="371dp"
+            android:layout_width="0dp"
             android:layout_height="41dp"
-            android:layout_marginBottom="27dp"
+            android:layout_marginBottom="9dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -148,30 +161,34 @@
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/btn_function"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.0" />
 
         <Button
             android:id="@+id/btn_function"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:text="Functions"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="96dp"
+            android:layout_width="0dp"
             android:layout_height="51dp"
             android:text="What to do?"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="76dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="37dp"
             app:layout_constraintBottom_toTopOf="@+id/qh_tv_id" />
 
         <RadioGroup
@@ -181,11 +198,12 @@
             android:layout_marginEnd="120dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="120dp"
-            app:layout_constraintHorizontal_bias="0.121"
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintLeft_toRightOf="@+id/textView7"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="31dp"
-            app:layout_constraintBottom_toTopOf="@+id/qh_tv_id">
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/qh_tv_id"
+            android:layout_marginStart="8dp">
 
             <RadioButton
                 android:id="@+id/rb_delete"

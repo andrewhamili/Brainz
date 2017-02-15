@@ -24,10 +24,6 @@ public class databasecontroller extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "brainz.db";
     frm_cisco q_cisco;
 
-
-
-
-
     public static final String QUESTION_TABLE = "questions";
     public static final String Q_COL1 = "q_id";
     public static final String Q_COL2 = "q_subject";
