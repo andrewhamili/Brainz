@@ -37,7 +37,9 @@ public class databasecontroller extends SQLiteOpenHelper {
                 + Q_COL2 + " TEXT,"
                 + Q_COL3 + " TEXT,"
                 + Q_COL4 + " TEXT,"
-                + Q_COL5 + " TEXT)";
+                + Q_COL5 + " TEXT,"
+                + Q_COL6 + " TEXT,"
+                + Q_COL7 + " TEXT)" ;
 
     public static final String ResultsCreate = "CREATE TABLE "
             + RESULTS_TABLE + "("
@@ -74,9 +76,9 @@ public class databasecontroller extends SQLiteOpenHelper {
         contentValues.put(Q_COL2, q_subject);
         contentValues.put(Q_COL3, q_answer);
         contentValues.put(Q_COL4, q_IsFinished);
-        contentValues.put(Q_COL5,q_q_a);
-        contentValues.put(Q_COL5,q_q_b);
-        contentValues.put(Q_COL5,q_q_c);
+        contentValues.put(Q_COL5, q_q_a);
+        contentValues.put(Q_COL6, q_q_b);
+        contentValues.put(Q_COL7, q_q_c);
 
         long result = db.insert(QUESTION_TABLE, null, contentValues);
         if (result == -1)
@@ -86,12 +88,6 @@ public class databasecontroller extends SQLiteOpenHelper {
 
     }
 
-//    public Cursor get_all_questions() {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        Cursor show_questions = db.rawQuery("SELECT * FROM"+QUESTION_TABLE, null);
-//        return show_questions;
-//    }
 
     public Cursor get_specific_questions(String q_subject){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -111,8 +107,8 @@ public class databasecontroller extends SQLiteOpenHelper {
         contentValues.put(Q_COL3, q_answer);
         contentValues.put(Q_COL4, q_IsFinished);
         contentValues.put(Q_COL5,q_q_a);
-        contentValues.put(Q_COL5,q_q_b);
-        contentValues.put(Q_COL5,q_q_c);
+        contentValues.put(Q_COL6,q_q_b);
+        contentValues.put(Q_COL7,q_q_c);
 
         db.update(QUESTION_TABLE, contentValues, "q_id = ?", new String[]{q_id});
         return true;
@@ -127,7 +123,7 @@ public class databasecontroller extends SQLiteOpenHelper {
 
     public Cursor get_cisco_question(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor showciscoquestions = db.rawQuery("SELECT * FROM"+QUESTION_TABLE+" WHERE "+Q_COL2+"= 'Cisco' AND "+Q_COL4+"= 'true'", null );
+        Cursor showciscoquestions = db.query(true,QUESTION_TABLE,new String[]{"q_q_a","q_q_b","q_q_c"},"q_subject = ?",new String[]{"Cisco"},null,null,null,null);
         return  showciscoquestions;
     }
 

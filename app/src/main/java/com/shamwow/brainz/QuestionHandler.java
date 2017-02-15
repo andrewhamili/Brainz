@@ -38,8 +38,8 @@ public class QuestionHandler extends AppCompatActivity {
         q_a = (EditText) findViewById(R.id.qh_a);
         q_b = (EditText)findViewById(R.id.qh_b);
         q_c = (EditText)findViewById(R.id.qh_c);
-
         q_answer = (EditText) findViewById(R.id.qh_tv_answers);
+
         q_id = (EditText)findViewById(R.id.qh_tv_id);
         spinnersubj = (Spinner) findViewById(R.id.spinner_subjs);
         spinnerchoose = (Spinner)findViewById(R.id.sp_viewchoices);
@@ -117,13 +117,7 @@ public class QuestionHandler extends AppCompatActivity {
 
 
     }
-//
-//      contentValues.put(Q_COL2, q_subject);
-//        contentValues.put(Q_COL3, q_answer);
-//        contentValues.put(Q_COL4, q_IsFinished);
-//        contentValues.put(Q_COL5,q_q_a);
-//        contentValues.put(Q_COL5,q_q_b);
-//        contentValues.put(Q_COL5,q_q_c);
+
 
     public void data_manipulation() {
 

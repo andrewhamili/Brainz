@@ -57,10 +57,17 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
+            <Button
+                android:id="@+id/btn_cisco_submit"
+                android:layout_width="300sp"
+                android:layout_height="80sp"
+                android:layout_alignStart="@+id/cic_rg_choices"
+                android:layout_below="@+id/cic_rg_choices"
+                android:layout_marginTop="72dp"
+                android:text="Submit" />
+
         </RelativeLayout>
     </ScrollView>
-
-
 
 
 </RelativeLayout>
