@@ -33,7 +33,6 @@ public class frm_cisco extends AppCompatActivity {
     @BindView(R.id.cis_rb_c) RadioButton rb_c;
     @BindView(R.id.cis_tv_question) TextView tv_question;
     @BindView(R.id.btn_cisco_submit) Button btn_next;
-    @BindView(R.id.tv_preview) TextView tv_preview;
     @BindView(R.id.tv_score) TextView tv_score;
 
     String choices;

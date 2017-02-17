@@ -16,6 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="80sp"
         android:text="Settings"
+        android:background="@drawable/button6"
+
+        android:textSize="25sp"
+        android:layout_marginBottom="41dp"
         android:layout_above="@+id/btn_exit"
         android:layout_alignParentStart="true" />
 
@@ -23,18 +27,23 @@
         android:id="@+id/btn_topics"
         android:layout_width="match_parent"
         android:layout_height="80sp"
+        android:layout_marginBottom="46dp"
+        android:text="Topics"
+        android:background="@drawable/button2"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
         android:layout_above="@+id/btn_settings"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="62dp"
-        android:text="Topics" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="80sp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="105dp"
         android:text="Exit"
+        android:background="@drawable/button10"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
