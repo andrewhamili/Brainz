@@ -4,21 +4,91 @@
     android:id="@+id/activity_frm_cisco"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.shamwow.brainz.frm_cisco"
-    android:background="@drawable/gamebackground_1">
+    android:background="@drawable/bg_lyt_cisco">
 
-    <TextView
-        android:text="Cisco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:textSize="36sp"/>
+        android:layout_alignParentStart="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RadioGroup
+                android:id="@+id/cic_rg_choices"
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:layout_above="@+id/btn_cisco_submit"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="21dp">
+
+                <RadioButton
+                    android:id="@+id/cis_rb_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:layout_marginBottom="30sp"
+                    android:text="RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/cis_rb_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:text="RadioButton"
+                    android:layout_marginBottom="30sp"/>
+
+                <RadioButton
+                    android:id="@+id/cis_rb_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="70sp"
+                    android:text="RadioButton"
+                    android:layout_marginBottom="30sp"/>
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/cis_tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question"
+                android:textSize="25sp"
+                android:layout_above="@+id/cic_rg_choices"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp" />
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score:"
+                android:layout_marginEnd="13dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:id="@+id/btn_cisco_submit"
+                android:layout_width="300sp"
+                android:layout_height="80sp"
+                android:text="Next"
+                android:background="@drawable/bg_btn_cisco"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:layout_above="@+id/tv_score"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
 
 </RelativeLayout>

@@ -4,23 +4,33 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+
+        >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".frm_topics" />
-        <activity android:name=".frm_settings" />
-        <activity android:name=".frm_vb_net" />
-        <activity android:name=".frm_cisco" />
-        <activity android:name=".frm_comp_essential" />
-        <activity android:name=".frm_mysql" />
+        <activity android:name=".frm_topics"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".frm_settings"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".frm_vb_net"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".frm_cisco"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".frm_comp_essential"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".frm_mysql"
+            android:screenOrientation="portrait"/>
         <activity android:name=".QuestionHandler"></activity>
     </application>
 
