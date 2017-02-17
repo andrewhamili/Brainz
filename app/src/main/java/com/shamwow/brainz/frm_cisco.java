@@ -61,6 +61,8 @@ public class frm_cisco extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 if (number==0){
                     score=0;
                 } else {
@@ -153,7 +155,7 @@ public class frm_cisco extends AppCompatActivity {
         rb_c.setText(qlib.getChoicec(number));
 
         answer = qlib.getCorrectAnswer(number);
-        number++;
+        number+=1;
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);
