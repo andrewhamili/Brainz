@@ -60,7 +60,7 @@
                 android:layout_centerHorizontal="true" />
 
             <TextView
-                android:id="@+id/tv_test"
+                android:id="@+id/tv_preview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -68,19 +68,34 @@
                 android:layout_marginEnd="156dp"
                 android:layout_marginTop="22dp"
                 android:text="Testing"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="47dp"
+                android:text="Score:"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="18dp" />
 
             <Button
                 android:id="@+id/btn_cisco_submit"
                 android:layout_width="match_parent"
                 android:layout_height="80sp"
-                android:layout_alignStart="@+id/cic_rg_choices"
-                android:layout_below="@+id/cic_rg_choices"
-                android:layout_marginTop="72dp"
-                android:text="Submit" />
+                android:text="Next"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="122dp" />
 
         </RelativeLayout>
+
+
     </ScrollView>
+
+
 
 
 </RelativeLayout>

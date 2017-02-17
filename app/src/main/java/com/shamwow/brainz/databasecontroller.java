@@ -147,16 +147,16 @@ public class databasecontroller extends SQLiteOpenHelper {
         return  showciscoquestions;
     }
 
-
-    public Cursor get_answer(String id){
-
+    public Cursor get_id_for_cisco(){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor showanswer = db.rawQuery("SELECT q_answer FROM questions WHERE q_id = ? AND q_subject = ? ",new String[]{id,"Cisco"});
-        return  showanswer;
-
+        Cursor showid_cisco = db.rawQuery("SELECT q_id FROM question WHERE q_subject = ?", new String[]{"Cisco"});
+        return showid_cisco;
 
     }
+
+
+
 
 
 
