@@ -58,7 +58,7 @@ public class frm_cisco extends AppCompatActivity {
                     score=0;
 
                 } else {
-                    if (number != 6){
+                    if (number != 10){
                         if (ref==answer){
                             score=score+1;
                             updateScore(score);
@@ -82,7 +82,7 @@ public class frm_cisco extends AppCompatActivity {
                         }
                     } else {
 
-                        if (number==5){
+                        if (number==9){
 
                         }
                         rb_a.setVisibility(View.GONE);

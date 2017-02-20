@@ -23,31 +23,31 @@
             <RadioGroup
                 android:id="@+id/cic_rg_choices"
                 android:layout_width="match_parent"
-                android:layout_height="300sp"
+                android:layout_height="240sp"
                 android:layout_above="@+id/btn_cisco_submit"
                 android:layout_alignParentStart="true"
-                android:layout_marginBottom="21dp">
+                android:layout_marginBottom="18dp">
 
                 <RadioButton
                     android:id="@+id/cis_rb_a"
                     android:layout_width="match_parent"
                     android:layout_height="70sp"
-                    android:layout_marginBottom="30sp"
+                    android:layout_marginBottom="10sp"
                     android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/cis_rb_b"
                     android:layout_width="match_parent"
                     android:layout_height="70sp"
-                    android:text="RadioButton"
-                    android:layout_marginBottom="30sp"/>
+                    android:layout_marginBottom="10sp"
+                    android:text="RadioButton" />
 
                 <RadioButton
                     android:id="@+id/cis_rb_c"
                     android:layout_width="match_parent"
                     android:layout_height="70sp"
-                    android:text="RadioButton"
-                    android:layout_marginBottom="30sp"/>
+                    android:layout_marginBottom="10sp"
+                    android:text="RadioButton" />
 
 
             </RadioGroup>
@@ -58,9 +58,9 @@
                 android:layout_height="wrap_content"
                 android:text="Question"
                 android:textSize="25sp"
+                android:layout_marginBottom="50dp"
                 android:layout_above="@+id/cic_rg_choices"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="30dp" />
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/tv_score"

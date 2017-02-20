@@ -6,26 +6,30 @@ package com.shamwow.brainz;
 
 public class CiscoQuestionLibrary {
 
-    private String CiscoListQuestion[] = {"What is Routing?",
+    private String CiscoListQuestion[] = {"_____ is an example of creating a variable in the begining of the loop block.",
             "What is the purpose of the Data Link?",
-            "What is a Window in networking terms?",
+            "In the CIDR notation, what subnet mask does /27 represent?",
             "What is MTU?",
             "What is HDLC?",
+            "What is the \"magic\" command to reverse the changes or command entered in the global configuration?",
+            "What is the shortcut key (Windows) command for exiting a mode?",
+            "255.0.224.0 is a valid is an invalid subnet mask, how should it be written?",
+            "Which type of connector does a NIC use?",
             ""};
 
     private String CiscoListChoices[][] =
             {
-                    {"Routing is the process of finding a path",
-                            "Routing is Cisco.",
-                            "Routing is not a part of cisco."},
+                    {"For intCount As Integer = 0",
+                            "For intCount As Integer",
+                            "For intCount As Int = 0"},
 
                     {"The job of the Data Link layer is to check messages are sent to the right device.",
                             "The job of the Data Link layer is to answer messages are sent to the right device.",
                             "The job of the Data Link layer is to transfer messages to the right device."},
 
-                    {"A Window refers to the number of segments that is allowed to be sent from source to destination before an acknowledgement is sent back.",
-                            "A Window refers to the number of segments that is allowed to be sent from destination to source before an acknowledgement is sent back.",
-                            "A Window refers to the number of segments that is not allowed to be sent from source to destination before an acknowledgement is sent back."},
+                    {"255.255.255.128",
+                     "255.255.255.240",
+                     "255.255.255.224"},
 
                     {"Maximum Transfer Unit",
                             "Minimum Transmission Unit",
@@ -35,15 +39,23 @@ public class CiscoQuestionLibrary {
                             "Higher Level Data Link Control",
                             "High Level Data Linking Control"},
 
-                    {"", "", ""}
+                    {"disble", "no", "erase"},
+                    {"Ctrl + Z","ALT + F4","Ctrl + C"},
+                    {"224.255.0.0","255.0.0.0","None of the above"},
+                    {"RJ-45","RJ-11","PS-2"},
+                    {"","",""}
             };
 
 
-    private String CiscoCorrectAnswers[] = {"Routing is the process of finding a path",
+    private String CiscoCorrectAnswers[] = {"For intCount As Integer = 0",
             "The job of the Data Link layer is to check messages are sent to the right device.",
-            "A Window refers to the number of segments that is allowed to be sent from destination to source before an acknowledgement is sent back.",
+            "255.255.255.224",
             "Maximum Transmission Unit",
             "High Level Data Link Control",
+            "no",
+            "Ctrl + C",
+            "224.255.0.0",
+            "RJ-45",
             ""};
 
     public String getListQuestions(int a) {
