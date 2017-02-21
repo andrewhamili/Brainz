@@ -82,25 +82,23 @@ public class frm_cisco extends AppCompatActivity {
                         }
                     } else {
 
-                        if (number==9){
-
-                        }
+                        tv_question.setVisibility(View.GONE);
                         rb_a.setVisibility(View.GONE);
                         rb_b.setVisibility(View.GONE);
                         rb_c.setVisibility(View.GONE);
-                        Toast.makeText(frm_cisco.this,"Finish", Toast.LENGTH_LONG).show();
-                            updateScore(score);
-                            showMessage("Brainz Inc.","Score: "+score);
+                        Toast.makeText(frm_cisco.this, "Finish", Toast.LENGTH_LONG).show();
+                        updateScore(score);
+                        showMessage("Brainz Inc.", "Score: " + score);
 
-                            btn_next.setText("Finish");
-                            btn_next.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    finish();
-                                }
-                            });
-                        }
+                        btn_next.setText("Finish");
+                        btn_next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                finish();
+                            }
+                        });
 
+                    }
 
                     }
 
