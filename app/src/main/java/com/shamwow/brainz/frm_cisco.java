@@ -39,75 +39,77 @@ public class frm_cisco extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frm_cisco);
+
         myDB = new databasecontroller(this);
-
-
         ButterKnife.bind(this);
+        set_questions();
+        conditions();
 
 
-         set_questions();
-         conditions();
 //        get_questions();
 //        answerme();
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            scoring();
 
-       if (number==0){
-                    score=0;
-
-                } else {
-                    if (number != 10){
-                        if (ref==answer){
-                            score=score+1;
-                            updateScore(score);
-                            set_questions();
-
-
-                        }else if (ref==answer){
-                            score=score+1;
-                            updateScore(score);
-                            set_questions();
-
-                        }else if (ref==answer){
-                            score=score+1;
-                            updateScore(score);
-                            set_questions();
-
-                        } else {
-                            updateScore(score);
-                            set_questions();
-
-                        }
-                    } else {
-
-                        if (number==9){
-
-                        }
-                        rb_a.setVisibility(View.GONE);
-                        rb_b.setVisibility(View.GONE);
-                        rb_c.setVisibility(View.GONE);
-                        Toast.makeText(frm_cisco.this,"Finish", Toast.LENGTH_LONG).show();
-                            updateScore(score);
-                            showMessage("Brainz Inc.","Score: "+score);
-
-                            btn_next.setText("Finish");
-                            btn_next.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    finish();
-                                }
-                            });
-                        }
-
-
-                    }
 
             }
 
         });
 
+    }
+
+    public void scoring(){
+        if (number==0){
+            score=0;
+
+        } else {
+            if (number != 11){
+                if (ref==answer){
+                    score=score+1;
+                    updateScore(score);
+                    set_questions();
+
+
+                }else if (ref==answer){
+                    score=score+1;
+                    updateScore(score);
+                    set_questions();
+
+                }else if (ref==answer){
+                    score=score+1;
+                    updateScore(score);
+                    set_questions();
+
+                } else {
+                    updateScore(score);
+                    set_questions();
+
+                }
+            } else {
+
+
+                tv_question.setVisibility(View.INVISIBLE);
+                rb_a.setVisibility(View.GONE);
+                rb_b.setVisibility(View.GONE);
+                rb_c.setVisibility(View.GONE);
+                Toast.makeText(frm_cisco.this,"Finish", Toast.LENGTH_LONG).show();
+                updateScore(score);
+                showMessage("Brainz Inc.","Score: "+score);
+
+                btn_next.setText("Finish");
+                btn_next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+            }
+
+
+        }
     }
 
     public void conditions(){
