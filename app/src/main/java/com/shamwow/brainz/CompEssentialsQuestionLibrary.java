@@ -6,21 +6,30 @@ package com.shamwow.brainz;
 
 public class CompEssentialsQuestionLibrary {
 
-    private String CompEssentialsQuestion[] = {"",
-            ""};
+    private String CompEssentialsQuestion[] = {
+            "1. Which one of the following would be described as software?",
+            "2. A laptop is mst likely to have which one of the following input devices ftted as standard",
+            "3. Which one of the following is the cpu in a computer",
+            "4. Which one of the following describes window xp",
+            "5. Which one of the following is a kilobyte",
+            "",};
 
     private String CompEssentialsChoices [][] = {
-            {"","",""},
-            {"","",""},
-            {"","",""},
-            {"","",""},
-            {"","",""},
+            {"Printer","Internet browser","Keyboard"},
+            {"Scanner","Mouse","Touchpad"},
+            {"Control Process Unit","Calculating Process Unit","Central Processing Unit"},
+            {"An operating system","A database application","A backup utility"},
+            {"1000 bytes","1024 bits","1024 bytes"},
             {"","",""},
     };
 
     private String CompEssentialsCorrectAnswer[]={
+            "Internet browser",
+            "Touchpad",
+            "Central Processing Unit",
+            "An operating system",
+            "1024 bytes",
             "",
-            ""
     };
 
     public String CompEssentialsgetListQuestions(int a) {
