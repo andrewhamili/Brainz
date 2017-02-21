@@ -25,9 +25,9 @@
                 android:id="@+id/vb_rg_choices"
                 android:layout_width="match_parent"
                 android:layout_height="240sp"
-                android:layout_marginBottom="35dp"
-                android:layout_above="@+id/vb_btn_cisco_submit"
-                android:layout_alignParentStart="true">
+                android:layout_above="@+id/vb_btn_submit"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="13dp">
 
                 <RadioButton
                     android:id="@+id/vb_rb_a"
@@ -74,7 +74,7 @@
                 android:layout_alignParentEnd="true" />
 
             <Button
-                android:id="@+id/vb_btn_cisco_submit"
+                android:id="@+id/vb_btn_submit"
                 android:layout_width="300sp"
                 android:layout_height="80sp"
                 android:text="Next"

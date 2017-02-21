@@ -24,9 +24,9 @@
                 android:id="@+id/ce_rg_choices"
                 android:layout_width="match_parent"
                 android:layout_height="240sp"
-                android:layout_marginBottom="35dp"
-                android:layout_above="@+id/ce_btn_cisco_submit"
-                android:layout_alignParentStart="true">
+                android:layout_above="@+id/ce_btn_submit"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="17dp">
 
                 <RadioButton
                     android:id="@+id/ce_rb_a"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="Question"
                 android:textSize="25sp"
-                android:layout_marginBottom="35dp"
+                android:layout_marginBottom="28dp"
                 android:layout_above="@+id/ce_rg_choices"
                 android:layout_centerHorizontal="true" />
 
@@ -73,7 +73,7 @@
                 android:layout_alignParentEnd="true" />
 
             <Button
-                android:id="@+id/ce_btn_cisco_submit"
+                android:id="@+id/ce_btn_submit"
                 android:layout_width="300sp"
                 android:layout_height="80sp"
                 android:text="Next"

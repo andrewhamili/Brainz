@@ -25,7 +25,7 @@ public class frm_cisco extends AppCompatActivity {
     @BindView(R.id.cis_rb_b) RadioButton rb_b;
     @BindView(R.id.cis_rb_c) RadioButton rb_c;
     @BindView(R.id.cis_tv_question) TextView tv_question;
-    @BindView(R.id.btn_cisco_submit) Button btn_next;
+    @BindView(R.id.cis_btn_submit) Button btn_next;
     @BindView(R.id.tv_score) TextView tv_score;
 
     String choices;
@@ -82,23 +82,25 @@ public class frm_cisco extends AppCompatActivity {
                         }
                     } else {
 
-                        tv_question.setVisibility(View.GONE);
+                        if (number==9){
+
+                        }
                         rb_a.setVisibility(View.GONE);
                         rb_b.setVisibility(View.GONE);
                         rb_c.setVisibility(View.GONE);
-                        Toast.makeText(frm_cisco.this, "Finish", Toast.LENGTH_LONG).show();
-                        updateScore(score);
-                        showMessage("Brainz Inc.", "Score: " + score);
+                        Toast.makeText(frm_cisco.this,"Finish", Toast.LENGTH_LONG).show();
+                            updateScore(score);
+                            showMessage("Brainz Inc.","Score: "+score);
 
-                        btn_next.setText("Finish");
-                        btn_next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                finish();
-                            }
-                        });
+                            btn_next.setText("Finish");
+                            btn_next.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    finish();
+                                }
+                            });
+                        }
 
-                    }
 
                     }
 

@@ -24,8 +24,8 @@
                 android:id="@+id/mysql_rg_choices"
                 android:layout_width="match_parent"
                 android:layout_height="240sp"
-                android:layout_marginBottom="35dp"
-                android:layout_above="@+id/mysql_btn_cisco_submit"
+                android:layout_marginBottom="14dp"
+                android:layout_above="@+id/mysql_btn_submit"
                 android:layout_alignParentStart="true">
 
                 <RadioButton
@@ -73,7 +73,7 @@
                 android:layout_alignParentEnd="true" />
 
             <Button
-                android:id="@+id/mysql_btn_cisco_submit"
+                android:id="@+id/mysql_btn_submit"
                 android:layout_width="300sp"
                 android:layout_height="80sp"
                 android:text="Next"
