@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class frm_comp_essential extends AppCompatActivity {
     @BindView(R.id.ce_tv_question)TextView tv_question;
     @BindView(R.id.ce_btn_submit)Button btn_next;
     @BindView(R.id.ce_tv_score) TextView tv_score;
+    @BindView(R.id.ce_btn_show_answer) Button btn_show_answer;
+    @BindView(R.id.ce_rg_choices)RadioGroup rg_choices;
 
     private String answer;
     private int score =0;
@@ -40,6 +43,8 @@ public class frm_comp_essential extends AppCompatActivity {
         set_questions();
         conditions();
 
+
+        btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,9 @@ public class frm_comp_essential extends AppCompatActivity {
             score = 0;
 
         }
+
+
+
 
         if (number != 5) {
             if (ref == answer) {
@@ -87,6 +95,7 @@ public class frm_comp_essential extends AppCompatActivity {
                     set_questions();
                 }
 
+
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
                 rb_a.setVisibility(View.GONE);
@@ -95,6 +104,22 @@ public class frm_comp_essential extends AppCompatActivity {
                 Toast.makeText(frm_comp_essential.this, "Finish", Toast.LENGTH_LONG).show();
                 updateScore(score);
                 showMessage("Brainz Inc.", "Score: " + score);
+
+                btn_show_answer.setVisibility(View.VISIBLE);
+                btn_show_answer.setText("?");
+                btn_show_answer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showMessage("Brainz Inc.",
+                                        "The Answer is:\n" +
+                                        "1. Internet browser\n" +
+                                                "2. Touchpad\n" +
+                                                "3. Central Processing Unit\n" +
+                                                "4. An operating system\n" +
+                                                "5. 1024 bytes" + score);
+
+                    }
+                });
 
                 btn_next.setText("Finish");
                 btn_next.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +169,7 @@ public class frm_comp_essential extends AppCompatActivity {
         answer = celib.CompEssentialsgetCorrectAnswer(number);
         number++;
 
+       rg_choices.clearCheck();
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);
