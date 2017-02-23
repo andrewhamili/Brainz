@@ -103,20 +103,21 @@ public class frm_comp_essential extends AppCompatActivity {
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_comp_essential.this, "Finish", Toast.LENGTH_LONG).show();
                 updateScore(score);
-                showMessage("Brainz Inc.", "Score: " + score);
+                showMessage("Brainz Inc. Computer Essentials", "Score: " + score);
 
                 btn_show_answer.setVisibility(View.VISIBLE);
                 btn_show_answer.setText("?");
                 btn_show_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showMessage("Brainz Inc.",
+                        showMessage("Brainz Inc. Computer Essentials",
                                         "The Answer is:\n" +
-                                        "1. Internet browser\n" +
+                                                "1. Internet browser\n" +
                                                 "2. Touchpad\n" +
                                                 "3. Central Processing Unit\n" +
                                                 "4. An operating system\n" +
-                                                "5. 1024 bytes" + score);
+                                                "5. 1024 bytes\n");
+
 
                     }
                 });

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,9 @@ public class frm_cisco extends AppCompatActivity {
     @BindView(R.id.cis_tv_question) TextView tv_question;
     @BindView(R.id.cis_btn_submit) Button btn_next;
     @BindView(R.id.tv_score) TextView tv_score;
+    @BindView(R.id.cis_btn_show_answer) Button btn_show_answer;
+    @BindView(R.id.cis_rg_choices)RadioGroup rg_choices;
+
 
     String choices;
 
@@ -49,6 +53,7 @@ public class frm_cisco extends AppCompatActivity {
 //        get_questions();
 //        answerme();
 
+        btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +113,28 @@ public class frm_cisco extends AppCompatActivity {
                 updateScore(score);
                 showMessage("Brainz Inc.", "Score: " + score);
 
+
+                btn_show_answer.setVisibility(View.VISIBLE);
+                btn_show_answer.setText("?");
+                btn_show_answer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showMessage("Brainz Inc. VB.NET",
+                                "The Answer is:\n" +
+                                        "1. Class B\n" +
+                                        "2. The job of the Data Link layer is to check messages are sent to the right device.\n" +
+                                        "3. 255.255.255.224\n" +
+                                        "4. Maximum Transmission Unit\n" +
+                                        "5. High Level Data Link Control\n" +
+                                        "6. no\n" +
+                                        "7. Ctrl + C\n" +
+                                        "8. 224.255.0.0\n" +
+                                        "9. RJ-45\n" +
+                                        "10. Presentation\n");
+
+                    }
+                });
+
                 btn_next.setText("Finish");
                 btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -157,6 +184,7 @@ public class frm_cisco extends AppCompatActivity {
         answer = qlib.getCorrectAnswer(number);
         number++;
 
+        rg_choices.clearCheck();
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);

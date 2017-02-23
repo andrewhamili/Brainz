@@ -91,6 +91,7 @@
                 android:background="@drawable/bg_btn_compessence"
                 android:textSize="25sp"
                 android:visibility="visible"
+                android:layout_alignBaseline="@+id/ce_tv_question"
                 android:layout_alignBottom="@+id/ce_tv_question"
                 android:layout_alignEnd="@+id/ce_tv_score" />
 

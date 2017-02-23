@@ -84,6 +84,18 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="11dp" />
 
+            <Button
+                android:id="@+id/vb_btn_show_answer"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:text=""
+                android:background="@drawable/bg_btn_compessence"
+                android:textSize="25sp"
+                android:visibility="visible"
+                android:layout_alignBottom="@+id/vb_tv_question"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="11dp" />
+
         </RelativeLayout>
 
 

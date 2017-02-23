@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="Question"
                 android:textSize="25sp"
-                android:layout_marginBottom="35dp"
+                android:layout_marginBottom="27dp"
                 android:layout_above="@+id/mysql_rg_choices"
                 android:layout_centerHorizontal="true" />
 
@@ -83,6 +83,18 @@
                 android:layout_above="@+id/mysql_tv_score"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="11dp" />
+
+            <Button
+                android:id="@+id/mysql_btn_show_answer"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:text=""
+                android:background="@drawable/bg_btn_compessence"
+                android:textSize="25sp"
+                android:visibility="visible"
+                android:layout_alignBaseline="@+id/mysql_tv_question"
+                android:layout_alignBottom="@+id/mysql_tv_question"
+                android:layout_alignEnd="@+id/mysql_tv_score" />
 
         </RelativeLayout>
 

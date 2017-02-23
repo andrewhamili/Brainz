@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ public class frm_vb_net extends AppCompatActivity {
     @BindView(R.id.vb_tv_question)TextView tv_question;
     @BindView(R.id.vb_btn_submit) Button btn_next;
     @BindView(R.id.vb_tv_score) TextView tv_score;
+    @BindView(R.id.vb_btn_show_answer) Button btn_show_answer;
+    @BindView(R.id.vb_rg_choices)RadioGroup rg_choices;
 
     private String answer;
     private int score =0;
@@ -38,6 +41,7 @@ public class frm_vb_net extends AppCompatActivity {
         set_questions();
         conditions();
 
+        btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +96,23 @@ public class frm_vb_net extends AppCompatActivity {
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_vb_net.this, "Finish", Toast.LENGTH_LONG).show();
                 updateScore(score);
-                showMessage("Brainz Inc.", "Score: " + score);
+                showMessage("Brainz Inc. VB.NET", "Score: " + score);
+
+                btn_show_answer.setVisibility(View.VISIBLE);
+                btn_show_answer.setText("?");
+                btn_show_answer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showMessage("Brainz Inc. VB.NET",
+                                "The Answer is:\n" +
+                                        "1. Letter\n" +
+                                        "2. -1\n" +
+                                        "3. Dynamic Language Runtime\n" +
+                                        "4. Partial Classes\n" +
+                                        "5. Array");
+
+                    }
+                });
 
                 btn_next.setText("Finish");
                 btn_next.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +165,7 @@ public class frm_vb_net extends AppCompatActivity {
         answer = vblib.VBgetCorrectAnswer(number);
         number++;
 
+        rg_choices.clearCheck();
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);

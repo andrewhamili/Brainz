@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class frm_mysql extends AppCompatActivity {
     @BindView(R.id.mysql_tv_question)TextView tv_question;
     @BindView(R.id.mysql_btn_submit)Button btn_next;
     @BindView(R.id.mysql_tv_score) TextView tv_score;
+    @BindView(R.id.mysql_btn_show_answer) Button btn_show_answer;
+    @BindView(R.id.mysql_rg_choices)RadioGroup rg_choices;
 
     private String answer;
     private int score =0;
@@ -39,6 +42,7 @@ public class frm_mysql extends AppCompatActivity {
         set_questions();
         conditions();
 
+        btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +97,25 @@ public class frm_mysql extends AppCompatActivity {
                     rb_c.setVisibility(View.GONE);
                     Toast.makeText(frm_mysql.this, "Finish", Toast.LENGTH_LONG).show();
                     updateScore(score);
-                    showMessage("Brainz Inc.", "Score: " + score);
+                    showMessage("Brainz Inc. MySQL", "Score: " + score);
+
+                    btn_show_answer.setVisibility(View.VISIBLE);
+                    btn_show_answer.setText("?");
+                    btn_show_answer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            showMessage("Brainz Inc. MySQL",
+                                    "The Answer is:\n" +
+                                            "1. Query\n" +
+                                            "2. mysql_close\n" +
+                                            "3. PHP Data Objects\n" +
+                                            "4. CREATE DATABASE\n" +
+                                            "5. Database");
+
+                        }
+                    });
+
+
 
                     btn_next.setText("Finish");
                     btn_next.setOnClickListener(new View.OnClickListener() {
@@ -146,6 +168,7 @@ public class frm_mysql extends AppCompatActivity {
         answer = mysqllib.MySQLgetCorrectAnswer(number);
         number++;
 
+        rg_choices.clearCheck();
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);
