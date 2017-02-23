@@ -39,6 +39,7 @@ public class frm_mysql extends AppCompatActivity {
         set_questions();
         conditions();
 
+        tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,9 +52,9 @@ public class frm_mysql extends AppCompatActivity {
     public void scoring() {
         if (number == 0) {
             score = 0;
+        }
 
-        } else {
-            if (number != 6) {
+            if (number != 5) {
                 if (ref == answer) {
                     score = score + 1;
                     updateScore(score);
@@ -78,27 +79,36 @@ public class frm_mysql extends AppCompatActivity {
 
             } else {
 
+                if (number==5){
 
-
-                tv_question.setVisibility(View.INVISIBLE);
-                rb_a.setVisibility(View.GONE);
-                rb_b.setVisibility(View.GONE);
-                rb_c.setVisibility(View.GONE);
-                Toast.makeText(frm_mysql.this, "Finish", Toast.LENGTH_LONG).show();
-                updateScore(score);
-                showMessage("Brainz Inc.", "Score: " + score);
-
-                btn_next.setText("Finish");
-                btn_next.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-
+                    if (ref==answer){
+                        score = score + 1;
+                        updateScore(score);
+                        set_questions();
                     }
-                });
+                    tv_score.setVisibility(View.VISIBLE);
+                    tv_question.setVisibility(View.INVISIBLE);
+                    rb_a.setVisibility(View.GONE);
+                    rb_b.setVisibility(View.GONE);
+                    rb_c.setVisibility(View.GONE);
+                    Toast.makeText(frm_mysql.this, "Finish", Toast.LENGTH_LONG).show();
+                    updateScore(score);
+                    showMessage("Brainz Inc.", "Score: " + score);
+
+                    btn_next.setText("Finish");
+                    btn_next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+
+                        }
+                    });
+                }
+
+
             }
         }
-    }
+
 
     public void conditions(){
 
