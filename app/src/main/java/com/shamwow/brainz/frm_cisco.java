@@ -1,6 +1,7 @@
 package com.shamwow.brainz;
 
 import android.database.Cursor;
+import android.support.annotation.StringDef;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,8 +27,9 @@ public class frm_cisco extends AppCompatActivity {
     @BindView(R.id.cis_rb_b) RadioButton rb_b;
     @BindView(R.id.cis_rb_c) RadioButton rb_c;
     @BindView(R.id.cis_tv_question) TextView tv_question;
-    @BindView(R.id.cis_btn_submit) Button btn_next;
+    @BindView(R.id.cis_tv_high_score) TextView tv_high_score;
     @BindView(R.id.tv_score) TextView tv_score;
+    @BindView(R.id.cis_btn_submit) Button btn_next;
     @BindView(R.id.cis_btn_show_answer) Button btn_show_answer;
     @BindView(R.id.cis_rg_choices)RadioGroup rg_choices;
 
@@ -53,6 +55,7 @@ public class frm_cisco extends AppCompatActivity {
 //        get_questions();
 //        answerme();
 
+        tv_high_score.setVisibility(View.INVISIBLE);
         btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +107,7 @@ public class frm_cisco extends AppCompatActivity {
                     set_questions();
                 }
 
+                tv_high_score.setVisibility(View.VISIBLE);
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
                 rb_a.setVisibility(View.GONE);
@@ -115,6 +119,8 @@ public class frm_cisco extends AppCompatActivity {
 
 
                 btn_show_answer.setVisibility(View.VISIBLE);
+                high_score_cis();
+
                 btn_show_answer.setText("?");
                 btn_show_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -139,12 +145,43 @@ public class frm_cisco extends AppCompatActivity {
                 btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String subject= "Cisco";
+
+                        String scorerecord = Integer.toString(score);
+
+                        boolean isInserted = myDB.insertinghighscore(subject,scorerecord);
+                        if (isInserted == true)
+                            Toast.makeText(frm_cisco.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(frm_cisco.this, "Data not Inserted", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 });
             }
 
         }
+    }
+
+    public void high_score_cis(){
+        Cursor get_high_score =  myDB.get_high_score();
+
+        if (get_high_score.getCount() ==0){
+
+            showMessage("Error","No Data Found");
+            return;
+
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while (get_high_score.moveToNext()){
+            buffer.append("Highest Score Cisco: " + get_high_score.getString(0)+"\n");
+
+
+        }
+
+        tv_high_score.setText(buffer.toString());
+
+
     }
 
 

@@ -64,7 +64,7 @@ public class databasecontroller extends SQLiteOpenHelper {
     public static  final String HighScoreCreate = "CREATE TABLE " + HIGHSCORE_TABLE +
             "(" + HS_COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + HS_COL2 + " TEXT,"
-                + HS_COL3 + " TEXT)";
+                + HS_COL3 + " INTEGER)";
 
     public static final String DroppingTables = "DROP TABLE IF EXIST "
             + QUESTION_TABLE + ","
@@ -88,6 +88,31 @@ public class databasecontroller extends SQLiteOpenHelper {
         db.execSQL(DroppingTables);
         onCreate(db);
     }
+
+    public boolean insertinghighscore (String hs_subject, String hs_score){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(HS_COL2,hs_subject);
+        contentValues.put(HS_COL3,hs_score);
+
+        long result = db.insert(HIGHSCORE_TABLE,null,contentValues);
+        if (result==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public Cursor get_high_score(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor show_hs_score = db.rawQuery("SELECT MAX(hs_score) FROM "+ HIGHSCORE_TABLE +" WHERE hs_subject = ?", new String[]{"Cisco"});
+        return show_hs_score;
+
+    }
+
+
 
     public boolean insertingquestions(String q_subject, String q_answer, String q_IsFinished, String q_q_a,String q_q_b,String q_q_c, String q_Question) {
         SQLiteDatabase db = this.getWritableDatabase();
