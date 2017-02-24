@@ -39,6 +39,12 @@ public class databasecontroller extends SQLiteOpenHelper {
     public static final String R_COL2 = "r_subject";
     public static final String R_COL3 = "r_score";
 
+    public static final String HIGHSCORE_TABLE = "highscoretable";
+    public static final String HS_COL1 = "hs_id";
+    public static final String HS_COL2 = "hs_subject";
+    public static final String HS_COL3 = "hs_score";
+
+
     public static final String QuestionsCreate = "CREATE TABLE " + QUESTION_TABLE + " " +
             "(" + Q_COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + Q_COL2 + " TEXT,"
@@ -55,9 +61,15 @@ public class databasecontroller extends SQLiteOpenHelper {
             + R_COL2 + " TEXT,"
             + R_COL3 + " INTEGER)";
 
+    public static  final String HighScoreCreate = "CREATE TABLE " + HIGHSCORE_TABLE +
+            "(" + HS_COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + HS_COL2 + " TEXT,"
+                + HS_COL3 + " TEXT)";
+
     public static final String DroppingTables = "DROP TABLE IF EXIST "
             + QUESTION_TABLE + ","
-            + RESULTS_TABLE;
+            + RESULTS_TABLE + ","
+            + HighScoreCreate;
 
     public databasecontroller(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -68,6 +80,7 @@ public class databasecontroller extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(QuestionsCreate);
         db.execSQL(ResultsCreate);
+        db.execSQL(HighScoreCreate);
     }
 
     @Override
