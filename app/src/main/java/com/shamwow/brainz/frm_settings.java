@@ -17,6 +17,8 @@ public class frm_settings extends AppCompatActivity {
     Button btn_gotoquestionmanager;
     @BindView(R.id.btn_clear_data)
     Button btn_clear_data;
+    @BindView(R.id.btn_listhighscore)
+    Button btn_list_highscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,13 @@ public class frm_settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showyesno();
+            }
+        });
+
+        btn_list_highscore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(frm_settings.this, frm_highscore.class));
             }
         });
     }
