@@ -13,8 +13,10 @@ import butterknife.ButterKnife;
 
 public class frm_settings extends AppCompatActivity {
 
-    @BindView(R.id.btn_questions)  Button btn_gotoquestionmanager;
-    @BindView(R.id.btn_clear_data) Button btn_clear_data;
+    @BindView(R.id.btn_questions)
+    Button btn_gotoquestionmanager;
+    @BindView(R.id.btn_clear_data)
+    Button btn_clear_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +41,11 @@ public class frm_settings extends AppCompatActivity {
         });
     }
 
-    public void showyesno(){
+    public void showyesno() {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (which==DialogInterface.BUTTON_POSITIVE){
+                if (which == DialogInterface.BUTTON_POSITIVE) {
                     clearPreferences();
                 } else {
 

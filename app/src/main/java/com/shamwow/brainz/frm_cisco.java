@@ -72,12 +72,9 @@ public class frm_cisco extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 scoring();
-
-
             }
 
         });
-
     }
 
     public void scoring() {
@@ -185,7 +182,7 @@ public class frm_cisco extends AppCompatActivity {
         }
         StringBuffer buffer = new StringBuffer();
         while (get_high_score.moveToNext()) {
-            buffer.append("Highest Score Cisco: " + get_high_score.getString(0) + "\n");
+            buffer.append("Highest Score Cisco:\n" + get_high_score.getString(0) + "\n");
         }
         tv_high_score.setText(buffer.toString());
     }

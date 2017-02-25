@@ -1,5 +1,6 @@
 package com.shamwow.brainz;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -34,12 +35,15 @@ public class frm_comp_essential extends AppCompatActivity {
     Button btn_show_answer;
     @BindView(R.id.ce_rg_choices)
     RadioGroup rg_choices;
+    @BindView(R.id.ce_tv_high_score)
+    TextView tv_high_score;
+
 
     private String answer;
     private int score = 0;
     private int number = 0;
     String ref;
-
+    private String subject = "Computer Essential";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,9 @@ public class frm_comp_essential extends AppCompatActivity {
         ButterKnife.bind(this);
         set_questions();
         conditions();
+        high_score_cis();
 
-
+        tv_high_score.setVisibility(View.INVISIBLE);
         btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
@@ -101,15 +106,17 @@ public class frm_comp_essential extends AppCompatActivity {
                     set_questions();
                 }
 
-
+                tv_high_score.setVisibility(View.VISIBLE);
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
                 rb_a.setVisibility(View.GONE);
                 rb_b.setVisibility(View.GONE);
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_comp_essential.this, "Finish", Toast.LENGTH_LONG).show();
+
                 updateScore(score);
-                showMessage("Brainz Inc. Computer Essentials", "Score: " + score);
+                insert_high_score_ce();
+                high_score_cis();
 
                 btn_show_answer.setVisibility(View.VISIBLE);
                 btn_show_answer.setText("?");
@@ -123,8 +130,6 @@ public class frm_comp_essential extends AppCompatActivity {
                                         "3. Central Processing Unit\n" +
                                         "4. An operating system\n" +
                                         "5. 1024 bytes\n");
-
-
                     }
                 });
 
@@ -138,6 +143,32 @@ public class frm_comp_essential extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    public void insert_high_score_ce() {
+        String scorerecord = Integer.toString(score);
+        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
+        if (isInserted == true) {
+//            Toast.makeText(frm_comp_essential.this, "Data Inserted", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(frm_comp_essential.this, "High Score not Recorded", Toast.LENGTH_LONG).show();
+        }
+
+        showMessage("Brainz Inc. Computer Essential", "Score: " + score);
+    }
+
+    public void high_score_cis() {
+        Cursor get_high_score = myDB.get_high_score(subject);
+        if (get_high_score.getCount() == 0) {
+            showMessage("Error", "No Data Found");
+            return;
+        }
+        StringBuffer buffer = new StringBuffer();
+        while (get_high_score.moveToNext()) {
+            buffer.append("Highest Score Computer Essential:\n" + get_high_score.getString(0) + "\n");
+        }
+        tv_high_score.setText(buffer.toString());
     }
 
 

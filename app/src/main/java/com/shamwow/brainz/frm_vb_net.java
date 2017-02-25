@@ -1,5 +1,6 @@
 package com.shamwow.brainz;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,11 +34,14 @@ public class frm_vb_net extends AppCompatActivity {
     Button btn_show_answer;
     @BindView(R.id.vb_rg_choices)
     RadioGroup rg_choices;
+    @BindView(R.id.vb_tv_high_score)
+    TextView tv_high_score;
 
     private String answer;
     private int score = 0;
     private int number = 0;
     String ref;
+    private String subject = "VB.Net";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class frm_vb_net extends AppCompatActivity {
         set_questions();
         conditions();
 
+        tv_high_score.setVisibility(View.INVISIBLE);
         btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
@@ -97,21 +102,24 @@ public class frm_vb_net extends AppCompatActivity {
                     set_questions();
                 }
 
+                tv_high_score.setVisibility(View.VISIBLE);
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
                 rb_a.setVisibility(View.GONE);
                 rb_b.setVisibility(View.GONE);
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_vb_net.this, "Finish", Toast.LENGTH_LONG).show();
+
                 updateScore(score);
-                showMessage("Brainz Inc. VB.NET", "Score: " + score);
+                insert_high_score_ce();
+                high_score_cis();
 
                 btn_show_answer.setVisibility(View.VISIBLE);
                 btn_show_answer.setText("?");
                 btn_show_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showMessage("Brainz Inc. VB.NET",
+                        showMessage("Brainz Inc. VB.Net",
                                 "The Answer is:\n" +
                                         "1. Letter\n" +
                                         "2. -1\n" +
@@ -135,6 +143,32 @@ public class frm_vb_net extends AppCompatActivity {
 
 
         }
+    }
+
+    public void insert_high_score_ce() {
+        String scorerecord = Integer.toString(score);
+        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
+        if (isInserted == true) {
+//            Toast.makeText(frm_comp_essential.this, "Data Inserted", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(frm_vb_net.this, "High Score not Recorded", Toast.LENGTH_LONG).show();
+        }
+
+        showMessage("Brainz Inc. VB.Net", "Score: " + score);
+    }
+
+    public void high_score_cis() {
+        Cursor get_high_score = myDB.get_high_score(subject);
+        if (get_high_score.getCount() == 0) {
+            showMessage("Error", "No Data Found");
+            return;
+        }
+        StringBuffer buffer = new StringBuffer();
+        while (get_high_score.moveToNext()) {
+            buffer.append("Highest Score VB.Net:\n" + get_high_score.getString(0) + "\n");
+        }
+        tv_high_score.setText(buffer.toString());
     }
 
     public void conditions() {

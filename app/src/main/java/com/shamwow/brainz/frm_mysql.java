@@ -1,5 +1,6 @@
 package com.shamwow.brainz;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -32,11 +33,15 @@ public class frm_mysql extends AppCompatActivity {
     Button btn_show_answer;
     @BindView(R.id.mysql_rg_choices)
     RadioGroup rg_choices;
+    @BindView(R.id.mysql_tv_high_score)
+    TextView tv_high_score;
+
     String ref;
     private MySQLQuestionLibrary mysqllib = new MySQLQuestionLibrary();
     private String answer;
     private int score = 0;
     private int number = 0;
+    private String subject = "MySQL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,9 @@ public class frm_mysql extends AppCompatActivity {
         set_questions();
         conditions();
 
+        high_score_cis();
+
+        tv_high_score.setVisibility(View.INVISIBLE);
         btn_show_answer.setVisibility(View.INVISIBLE);
         tv_score.setVisibility(View.INVISIBLE);
         btn_next.setOnClickListener(new View.OnClickListener() {
@@ -96,14 +104,17 @@ public class frm_mysql extends AppCompatActivity {
                     updateScore(score);
                     set_questions();
                 }
+                tv_high_score.setVisibility(View.VISIBLE);
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
                 rb_a.setVisibility(View.GONE);
                 rb_b.setVisibility(View.GONE);
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_mysql.this, "Finish", Toast.LENGTH_LONG).show();
+
                 updateScore(score);
-                showMessage("Brainz Inc. MySQL", "Score: " + score);
+                insert_high_score_ce();
+                high_score_cis();
 
                 btn_show_answer.setVisibility(View.VISIBLE);
                 btn_show_answer.setText("?");
@@ -134,6 +145,32 @@ public class frm_mysql extends AppCompatActivity {
 
 
         }
+    }
+
+    public void insert_high_score_ce() {
+        String scorerecord = Integer.toString(score);
+        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
+        if (isInserted == true) {
+//            Toast.makeText(frm_comp_essential.this, "Data Inserted", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(frm_mysql.this, "High Score not Recorded", Toast.LENGTH_LONG).show();
+        }
+
+        showMessage("Brainz Inc. MySQL", "Score: " + score);
+    }
+
+    public void high_score_cis() {
+        Cursor get_high_score = myDB.get_high_score(subject);
+        if (get_high_score.getCount() == 0) {
+            showMessage("Error", "No Data Found");
+            return;
+        }
+        StringBuffer buffer = new StringBuffer();
+        while (get_high_score.moveToNext()) {
+            buffer.append("Highest Score MySQL:\n" + get_high_score.getString(0) + "\n");
+        }
+        tv_high_score.setText(buffer.toString());
     }
 
 
