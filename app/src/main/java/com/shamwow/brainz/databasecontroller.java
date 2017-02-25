@@ -95,10 +95,10 @@ public class databasecontroller extends SQLiteOpenHelper {
             return true;
     }
 
-    public Cursor get_high_score() {
+    public Cursor get_high_score(String subject) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor show_hs_score = db.rawQuery("SELECT MAX(hs_score) FROM " + HIGHSCORE_TABLE + " WHERE hs_subject = ?", new String[]{"Cisco"});
+        Cursor show_hs_score = db.rawQuery("SELECT MAX(hs_score) FROM " + HIGHSCORE_TABLE + " WHERE hs_subject = ?", new String[]{subject});
         return show_hs_score;
 
     }

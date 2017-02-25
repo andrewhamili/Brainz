@@ -22,6 +22,7 @@ public class frm_cisco extends AppCompatActivity {
     StringBuffer cha, chb, chc = new StringBuffer();
     Cursor cursor;
 
+
     @BindView(R.id.cis_rb_a)
     RadioButton rb_a;
     @BindView(R.id.cis_rb_b)
@@ -42,12 +43,12 @@ public class frm_cisco extends AppCompatActivity {
     RadioGroup rg_choices;
 
 
-    String choices;
+    private String subject = "Cisco";
 
     private String answer;
     private int score = 0;
     private int number = 0;
-    String ref;
+    String ref, choices;
 
 
     @Override
@@ -120,17 +121,17 @@ public class frm_cisco extends AppCompatActivity {
                 tv_high_score.setVisibility(View.VISIBLE);
                 tv_score.setVisibility(View.VISIBLE);
                 tv_question.setVisibility(View.INVISIBLE);
+
                 rb_a.setVisibility(View.GONE);
                 rb_b.setVisibility(View.GONE);
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_cisco.this, "Finish", Toast.LENGTH_LONG).show();
+
                 updateScore(score);
-                showMessage("Brainz Inc. Cisco", "Score: " + score);
-
-
-                btn_show_answer.setVisibility(View.VISIBLE);
+                insert_high_score_cisco();
                 high_score_cis();
 
+                btn_show_answer.setVisibility(View.VISIBLE);
                 btn_show_answer.setText("?");
                 btn_show_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -155,15 +156,6 @@ public class frm_cisco extends AppCompatActivity {
                 btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String subject = "Cisco";
-
-                        String scorerecord = Integer.toString(score);
-
-                        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
-                        if (isInserted == true)
-                            Toast.makeText(frm_cisco.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(frm_cisco.this, "Data not Inserted", Toast.LENGTH_LONG).show();
                         finish();
                     }
                 });
@@ -172,8 +164,21 @@ public class frm_cisco extends AppCompatActivity {
         }
     }
 
+    public void insert_high_score_cisco() {
+        String scorerecord = Integer.toString(score);
+        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
+        if (isInserted == true) {
+//            Toast.makeText(frm_cisco.this, "Data Inserted", Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(frm_cisco.this, "High Score not Recorded", Toast.LENGTH_LONG).show();
+        }
+
+        showMessage("Brainz Inc. Cisco", "Score: " + score);
+    }
+
     public void high_score_cis() {
-        Cursor get_high_score = myDB.get_high_score();
+        Cursor get_high_score = myDB.get_high_score(subject);
         if (get_high_score.getCount() == 0) {
             showMessage("Error", "No Data Found");
             return;
