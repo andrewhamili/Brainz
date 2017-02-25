@@ -1,10 +1,9 @@
 package com.shamwow.brainz;
 
 import android.database.Cursor;
-import android.support.annotation.StringDef;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -20,26 +19,36 @@ public class frm_cisco extends AppCompatActivity {
     private CiscoQuestionLibrary qlib = new CiscoQuestionLibrary();
 
     QuestionHandler qmsh;
-    StringBuffer cha,chb,chc = new StringBuffer();
+    StringBuffer cha, chb, chc = new StringBuffer();
     Cursor cursor;
 
-    @BindView(R.id.cis_rb_a) RadioButton rb_a;
-    @BindView(R.id.cis_rb_b) RadioButton rb_b;
-    @BindView(R.id.cis_rb_c) RadioButton rb_c;
-    @BindView(R.id.cis_tv_question) TextView tv_question;
-    @BindView(R.id.cis_tv_high_score) TextView tv_high_score;
-    @BindView(R.id.tv_score) TextView tv_score;
-    @BindView(R.id.cis_btn_submit) Button btn_next;
-    @BindView(R.id.cis_btn_show_answer) Button btn_show_answer;
-    @BindView(R.id.cis_rg_choices)RadioGroup rg_choices;
+    @BindView(R.id.cis_rb_a)
+    RadioButton rb_a;
+    @BindView(R.id.cis_rb_b)
+    RadioButton rb_b;
+    @BindView(R.id.cis_rb_c)
+    RadioButton rb_c;
+    @BindView(R.id.cis_tv_question)
+    TextView tv_question;
+    @BindView(R.id.cis_tv_high_score)
+    TextView tv_high_score;
+    @BindView(R.id.tv_score)
+    TextView tv_score;
+    @BindView(R.id.cis_btn_submit)
+    Button btn_next;
+    @BindView(R.id.cis_btn_show_answer)
+    Button btn_show_answer;
+    @BindView(R.id.cis_rg_choices)
+    RadioGroup rg_choices;
 
 
     String choices;
 
     private String answer;
-    private int score =0;
-    private int number =0;
+    private int score = 0;
+    private int number = 0;
     String ref;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +59,7 @@ public class frm_cisco extends AppCompatActivity {
         ButterKnife.bind(this);
         set_questions();
         conditions();
-
+        high_score_cis();
 
 //        get_questions();
 //        answerme();
@@ -61,7 +70,7 @@ public class frm_cisco extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            scoring();
+                scoring();
 
 
             }
@@ -99,12 +108,13 @@ public class frm_cisco extends AppCompatActivity {
 
         } else {
 
-            if (number==10){
+            if (number == 10) {
 
-                if (ref==answer){
+                if (ref == answer) {
                     score = score + 1;
                     updateScore(score);
                     set_questions();
+                    high_score_cis();
                 }
 
                 tv_high_score.setVisibility(View.VISIBLE);
@@ -115,7 +125,7 @@ public class frm_cisco extends AppCompatActivity {
                 rb_c.setVisibility(View.GONE);
                 Toast.makeText(frm_cisco.this, "Finish", Toast.LENGTH_LONG).show();
                 updateScore(score);
-                showMessage("Brainz Inc.", "Score: " + score);
+                showMessage("Brainz Inc. Cisco", "Score: " + score);
 
 
                 btn_show_answer.setVisibility(View.VISIBLE);
@@ -125,7 +135,7 @@ public class frm_cisco extends AppCompatActivity {
                 btn_show_answer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showMessage("Brainz Inc. VB.NET",
+                        showMessage("Brainz Inc. Cisco",
                                 "The Answer is:\n" +
                                         "1. Class B\n" +
                                         "2. The job of the Data Link layer is to check messages are sent to the right device.\n" +
@@ -145,11 +155,11 @@ public class frm_cisco extends AppCompatActivity {
                 btn_next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String subject= "Cisco";
+                        String subject = "Cisco";
 
                         String scorerecord = Integer.toString(score);
 
-                        boolean isInserted = myDB.insertinghighscore(subject,scorerecord);
+                        boolean isInserted = myDB.insertinghighscore(subject, scorerecord);
                         if (isInserted == true)
                             Toast.makeText(frm_cisco.this, "Data Inserted", Toast.LENGTH_LONG).show();
                         else
@@ -162,30 +172,21 @@ public class frm_cisco extends AppCompatActivity {
         }
     }
 
-    public void high_score_cis(){
-        Cursor get_high_score =  myDB.get_high_score();
-
-        if (get_high_score.getCount() ==0){
-
-            showMessage("Error","No Data Found");
+    public void high_score_cis() {
+        Cursor get_high_score = myDB.get_high_score();
+        if (get_high_score.getCount() == 0) {
+            showMessage("Error", "No Data Found");
             return;
-
         }
-
         StringBuffer buffer = new StringBuffer();
-        while (get_high_score.moveToNext()){
-            buffer.append("Highest Score Cisco: " + get_high_score.getString(0)+"\n");
-
-
+        while (get_high_score.moveToNext()) {
+            buffer.append("Highest Score Cisco: " + get_high_score.getString(0) + "\n");
         }
-
         tv_high_score.setText(buffer.toString());
-
-
     }
 
 
-    public void conditions(){
+    public void conditions() {
 
         rb_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,7 +212,7 @@ public class frm_cisco extends AppCompatActivity {
     }
 
 
-    public void set_questions(){
+    public void set_questions() {
 
         tv_question.setText(qlib.getListQuestions(number));
         rb_a.setText(qlib.getChoicea(number));
@@ -227,12 +228,12 @@ public class frm_cisco extends AppCompatActivity {
         rb_c.setChecked(false);
     }
 
-    public void updateScore(int point){
-        tv_score.setText("Score: "+ score);
+    public void updateScore(int point) {
+        tv_score.setText("Score: " + score);
     }
 
 
-    public void showMessage(String title, String message){
+    public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
@@ -240,9 +241,6 @@ public class frm_cisco extends AppCompatActivity {
         builder.show();
 
     }
-
-
-
 
 
 //    public void get_questions(){

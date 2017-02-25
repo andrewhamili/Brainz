@@ -21,16 +21,16 @@ public class CiscoQuestionLibrary {
     private String CiscoListChoices[][] =
             {
                     {"Class A",
-                     "Class B",
-                     "Class C"},
+                            "Class B",
+                            "Class C"},
 
                     {"The job of the Data Link layer is to check messages are sent to the right device.",
                             "The job of the Data Link layer is to answer messages are sent to the right device.",
                             "The job of the Data Link layer is to transfer messages to the right device."},
 
                     {"255.255.255.128",
-                     "255.255.255.240",
-                     "255.255.255.224"},
+                            "255.255.255.240",
+                            "255.255.255.224"},
 
                     {"Maximum Transfer Unit",
                             "Minimum Transmission Unit",
@@ -41,11 +41,11 @@ public class CiscoQuestionLibrary {
                             "High Level Data Linking Control"},
 
                     {"disble", "no", "erase"},
-                    {"Ctrl + Z","ALT + F4","Ctrl + C"},
-                    {"224.255.0.0","255.0.0.0","None of the above"},
-                    {"RJ-45","RJ-11","PS-2"},
-                    {"Network","Presentation","Transport"},
-                    {"","",""}
+                    {"Ctrl + Z", "ALT + F4", "Ctrl + C"},
+                    {"224.255.0.0", "255.0.0.0", "None of the above"},
+                    {"RJ-45", "RJ-11", "PS-2"},
+                    {"Network", "Presentation", "Transport"},
+                    {"", "", ""}
 
             };
 

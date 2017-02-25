@@ -3,17 +3,8 @@ package com.shamwow.brainz;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.CursorIndexOutOfBoundsException;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.v4.content.res.TypedArrayUtils;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.StringTokenizer;
 
 
 /**
@@ -47,13 +38,13 @@ public class databasecontroller extends SQLiteOpenHelper {
 
     public static final String QuestionsCreate = "CREATE TABLE " + QUESTION_TABLE + " " +
             "(" + Q_COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + Q_COL2 + " TEXT,"
-                + Q_COL3 + " TEXT,"
-                + Q_COL4 + " TEXT,"
-                + Q_COL5 + " TEXT,"
-                + Q_COL6 + " TEXT,"
-                + Q_COL7 + " TEXT,"
-                + Q_Question + " TEXT)";
+            + Q_COL2 + " TEXT,"
+            + Q_COL3 + " TEXT,"
+            + Q_COL4 + " TEXT,"
+            + Q_COL5 + " TEXT,"
+            + Q_COL6 + " TEXT,"
+            + Q_COL7 + " TEXT,"
+            + Q_Question + " TEXT)";
 
     public static final String ResultsCreate = "CREATE TABLE "
             + RESULTS_TABLE + "("
@@ -61,10 +52,10 @@ public class databasecontroller extends SQLiteOpenHelper {
             + R_COL2 + " TEXT,"
             + R_COL3 + " INTEGER)";
 
-    public static  final String HighScoreCreate = "CREATE TABLE " + HIGHSCORE_TABLE +
+    public static final String HighScoreCreate = "CREATE TABLE " + HIGHSCORE_TABLE +
             "(" + HS_COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + HS_COL2 + " TEXT,"
-                + HS_COL3 + " INTEGER)";
+            + HS_COL2 + " TEXT,"
+            + HS_COL3 + " INTEGER)";
 
     public static final String DroppingTables = "DROP TABLE IF EXIST "
             + QUESTION_TABLE + ","
@@ -89,32 +80,31 @@ public class databasecontroller extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertinghighscore (String hs_subject, String hs_score){
+    public boolean insertinghighscore(String hs_subject, String hs_score) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(HS_COL2,hs_subject);
-        contentValues.put(HS_COL3,hs_score);
+        contentValues.put(HS_COL2, hs_subject);
+        contentValues.put(HS_COL3, hs_score);
 
-        long result = db.insert(HIGHSCORE_TABLE,null,contentValues);
-        if (result==-1)
+        long result = db.insert(HIGHSCORE_TABLE, null, contentValues);
+        if (result == -1)
             return false;
         else
             return true;
     }
 
-    public Cursor get_high_score(){
+    public Cursor get_high_score() {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor show_hs_score = db.rawQuery("SELECT MAX(hs_score) FROM "+ HIGHSCORE_TABLE +" WHERE hs_subject = ?", new String[]{"Cisco"});
+        Cursor show_hs_score = db.rawQuery("SELECT MAX(hs_score) FROM " + HIGHSCORE_TABLE + " WHERE hs_subject = ?", new String[]{"Cisco"});
         return show_hs_score;
 
     }
 
 
-
-    public boolean insertingquestions(String q_subject, String q_answer, String q_IsFinished, String q_q_a,String q_q_b,String q_q_c, String q_Question) {
+    public boolean insertingquestions(String q_subject, String q_answer, String q_IsFinished, String q_q_a, String q_q_b, String q_q_c, String q_Question) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -125,7 +115,7 @@ public class databasecontroller extends SQLiteOpenHelper {
         contentValues.put(Q_COL5, q_q_a);
         contentValues.put(Q_COL6, q_q_b);
         contentValues.put(Q_COL7, q_q_c);
-        contentValues.put(Q_Question,q_Question);
+        contentValues.put(Q_Question, q_Question);
 
         long result = db.insert(QUESTION_TABLE, null, contentValues);
         if (result == -1)
@@ -136,15 +126,15 @@ public class databasecontroller extends SQLiteOpenHelper {
     }
 
 
-    public Cursor get_specific_questions(String q_subject){
+    public Cursor get_specific_questions(String q_subject) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor show_question = db.rawQuery("SELECT * FROM "+QUESTION_TABLE+" WHERE "+Q_COL2+"= ?",new String[]{q_subject});
-        return  show_question;
+        Cursor show_question = db.rawQuery("SELECT * FROM " + QUESTION_TABLE + " WHERE " + Q_COL2 + "= ?", new String[]{q_subject});
+        return show_question;
     }
 
 
-    public boolean updatequestions(String q_id,String q_subject, String q_answer, String q_IsFinished, String q_q_a,String q_q_b,String q_q_c,String q_Question) {
+    public boolean updatequestions(String q_id, String q_subject, String q_answer, String q_IsFinished, String q_q_a, String q_q_b, String q_q_c, String q_Question) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -153,10 +143,10 @@ public class databasecontroller extends SQLiteOpenHelper {
         contentValues.put(Q_COL2, q_subject);
         contentValues.put(Q_COL3, q_answer);
         contentValues.put(Q_COL4, q_IsFinished);
-        contentValues.put(Q_COL5,q_q_a);
-        contentValues.put(Q_COL6,q_q_b);
-        contentValues.put(Q_COL7,q_q_c);
-        contentValues.put(Q_Question,q_Question);
+        contentValues.put(Q_COL5, q_q_a);
+        contentValues.put(Q_COL6, q_q_b);
+        contentValues.put(Q_COL7, q_q_c);
+        contentValues.put(Q_Question, q_Question);
 
         db.update(QUESTION_TABLE, contentValues, "q_id = ?", new String[]{q_id});
         return true;
@@ -170,34 +160,27 @@ public class databasecontroller extends SQLiteOpenHelper {
     }
 
 
-
-    public Cursor get_cisco_question(){
+    public Cursor get_cisco_question() {
         q_cisco = new frm_cisco();
 
-        String[]  columnchoices = {Q_Question,Q_COL5,Q_COL6,Q_COL7};
+        String[] columnchoices = {Q_Question, Q_COL5, Q_COL6, Q_COL7};
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor showciscoquestions = db.rawQuery("SELECT q_Question,q_q_a,q_q_b,q_q_c FROM questions WHERE q_subject = ? AND q_IsFinished = ? ",new String[] {"Cisco","false"});
+        Cursor showciscoquestions = db.rawQuery("SELECT q_Question,q_q_a,q_q_b,q_q_c FROM questions WHERE q_subject = ? AND q_IsFinished = ? ", new String[]{"Cisco", "false"});
 
 
 //        Cursor showciscoquestions = db.query(true,QUESTION_TABLE,columnchoices,"q_subject=?",new String[] {"Cisco"},null,null,null,null);
 
-        return  showciscoquestions;
+        return showciscoquestions;
     }
 
-    public Cursor get_id_for_cisco(){
+    public Cursor get_id_for_cisco() {
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor showid_cisco = db.rawQuery("SELECT q_id FROM question WHERE q_subject = ?", new String[]{"Cisco"});
         return showid_cisco;
 
     }
-
-
-
-
-
-
 
 
 }

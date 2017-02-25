@@ -1,8 +1,8 @@
 package com.shamwow.brainz;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,13 +13,13 @@ public class frm_topics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frm_topics);
 
-        Button vb_net =(Button) findViewById(R.id.btn_vb_net);
+        Button vb_net = (Button) findViewById(R.id.btn_vb_net);
 
         vb_net.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(frm_topics.this,frm_vb_net.class));
+                startActivity(new Intent(frm_topics.this, frm_vb_net.class));
             }
         });
 
@@ -29,7 +29,7 @@ public class frm_topics extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(frm_topics.this,frm_mysql.class));
+                startActivity(new Intent(frm_topics.this, frm_mysql.class));
             }
         });
 
@@ -37,17 +37,17 @@ public class frm_topics extends AppCompatActivity {
         comp_esssentials.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(frm_topics.this,frm_comp_essential.class));
+                startActivity(new Intent(frm_topics.this, frm_comp_essential.class));
             }
         });
 
 
-        Button cisco = (Button)findViewById(R.id.btn_cisco);
+        Button cisco = (Button) findViewById(R.id.btn_cisco);
 
         cisco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(frm_topics.this,frm_cisco  .class));
+                startActivity(new Intent(frm_topics.this, frm_cisco.class));
             }
         });
     }

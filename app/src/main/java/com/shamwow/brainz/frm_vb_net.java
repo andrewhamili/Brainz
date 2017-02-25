@@ -1,8 +1,8 @@
 package com.shamwow.brainz;
 
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -17,18 +17,26 @@ public class frm_vb_net extends AppCompatActivity {
     databasecontroller myDB;
     private VBQuestionLibrary vblib = new VBQuestionLibrary();
 
-    @BindView(R.id.vb_rb_a) RadioButton rb_a;
-    @BindView(R.id.vb_rb_b) RadioButton rb_b;
-    @BindView(R.id.vb_rb_c) RadioButton rb_c;
-    @BindView(R.id.vb_tv_question)TextView tv_question;
-    @BindView(R.id.vb_btn_submit) Button btn_next;
-    @BindView(R.id.vb_tv_score) TextView tv_score;
-    @BindView(R.id.vb_btn_show_answer) Button btn_show_answer;
-    @BindView(R.id.vb_rg_choices)RadioGroup rg_choices;
+    @BindView(R.id.vb_rb_a)
+    RadioButton rb_a;
+    @BindView(R.id.vb_rb_b)
+    RadioButton rb_b;
+    @BindView(R.id.vb_rb_c)
+    RadioButton rb_c;
+    @BindView(R.id.vb_tv_question)
+    TextView tv_question;
+    @BindView(R.id.vb_btn_submit)
+    Button btn_next;
+    @BindView(R.id.vb_tv_score)
+    TextView tv_score;
+    @BindView(R.id.vb_btn_show_answer)
+    Button btn_show_answer;
+    @BindView(R.id.vb_rg_choices)
+    RadioGroup rg_choices;
 
     private String answer;
-    private int score =0;
-    private int number =0;
+    private int score = 0;
+    private int number = 0;
     String ref;
 
     @Override
@@ -81,9 +89,9 @@ public class frm_vb_net extends AppCompatActivity {
             }
         } else {
 
-            if (number==5){
+            if (number == 5) {
 
-                if (ref==answer){
+                if (ref == answer) {
                     score = score + 1;
                     updateScore(score);
                     set_questions();
@@ -129,7 +137,7 @@ public class frm_vb_net extends AppCompatActivity {
         }
     }
 
-    public void conditions(){
+    public void conditions() {
 
         rb_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +163,7 @@ public class frm_vb_net extends AppCompatActivity {
     }
 
 
-    public void set_questions(){
+    public void set_questions() {
 
         tv_question.setText(vblib.VBgetListQuestions(number));
         rb_a.setText(vblib.VBgetChoicea(number));
@@ -171,12 +179,12 @@ public class frm_vb_net extends AppCompatActivity {
         rb_c.setChecked(false);
     }
 
-    public void updateScore(int point){
-        tv_score.setText("Score: "+ score);
+    public void updateScore(int point) {
+        tv_score.setText("Score: " + score);
     }
 
 
-    public void showMessage(String title, String message){
+    public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);

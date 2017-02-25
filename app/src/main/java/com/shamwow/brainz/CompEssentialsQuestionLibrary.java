@@ -14,16 +14,16 @@ public class CompEssentialsQuestionLibrary {
             "5. Which one of the following is a kilobyte",
             "",};
 
-    private String CompEssentialsChoices [][] = {
-            {"Printer","Internet browser","Keyboard"},
-            {"Scanner","Mouse","Touchpad"},
-            {"Control Process Unit","Calculating Process Unit","Central Processing Unit"},
-            {"An operating system","A database application","A backup utility"},
-            {"1000 bytes","1024 bits","1024 bytes"},
-            {"","",""},
+    private String CompEssentialsChoices[][] = {
+            {"Printer", "Internet browser", "Keyboard"},
+            {"Scanner", "Mouse", "Touchpad"},
+            {"Control Process Unit", "Calculating Process Unit", "Central Processing Unit"},
+            {"An operating system", "A database application", "A backup utility"},
+            {"1000 bytes", "1024 bits", "1024 bytes"},
+            {"", "", ""},
     };
 
-    private String CompEssentialsCorrectAnswer[]={
+    private String CompEssentialsCorrectAnswer[] = {
             "Internet browser",
             "Touchpad",
             "Central Processing Unit",

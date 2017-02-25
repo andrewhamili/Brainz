@@ -23,7 +23,7 @@ public class VBQuestionLibrary {
     };
 
     private String VBCorrectAnswer[]={
-            "Letter",
+            "LETTER",
             "-1",
             "Dynamic Language Runtime",
             "Partial Classes",

@@ -1,8 +1,8 @@
 package com.shamwow.brainz;
 
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -18,18 +18,26 @@ public class frm_comp_essential extends AppCompatActivity {
     databasecontroller myDB;
     private CompEssentialsQuestionLibrary celib = new CompEssentialsQuestionLibrary();
 
-    @BindView(R.id.ce_rb_a)RadioButton rb_a;
-    @BindView(R.id.ce_rb_b) RadioButton rb_b;
-    @BindView(R.id.ce_rb_c) RadioButton rb_c;
-    @BindView(R.id.ce_tv_question)TextView tv_question;
-    @BindView(R.id.ce_btn_submit)Button btn_next;
-    @BindView(R.id.ce_tv_score) TextView tv_score;
-    @BindView(R.id.ce_btn_show_answer) Button btn_show_answer;
-    @BindView(R.id.ce_rg_choices)RadioGroup rg_choices;
+    @BindView(R.id.ce_rb_a)
+    RadioButton rb_a;
+    @BindView(R.id.ce_rb_b)
+    RadioButton rb_b;
+    @BindView(R.id.ce_rb_c)
+    RadioButton rb_c;
+    @BindView(R.id.ce_tv_question)
+    TextView tv_question;
+    @BindView(R.id.ce_btn_submit)
+    Button btn_next;
+    @BindView(R.id.ce_tv_score)
+    TextView tv_score;
+    @BindView(R.id.ce_btn_show_answer)
+    Button btn_show_answer;
+    @BindView(R.id.ce_rg_choices)
+    RadioGroup rg_choices;
 
     private String answer;
-    private int score =0;
-    private int number =0;
+    private int score = 0;
+    private int number = 0;
     String ref;
 
 
@@ -61,8 +69,6 @@ public class frm_comp_essential extends AppCompatActivity {
         }
 
 
-
-
         if (number != 5) {
             if (ref == answer) {
                 score = score + 1;
@@ -87,9 +93,9 @@ public class frm_comp_essential extends AppCompatActivity {
             }
         } else {
 
-            if (number==5){
+            if (number == 5) {
 
-                if (ref==answer){
+                if (ref == answer) {
                     score = score + 1;
                     updateScore(score);
                     set_questions();
@@ -111,12 +117,12 @@ public class frm_comp_essential extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         showMessage("Brainz Inc. Computer Essentials",
-                                        "The Answer is:\n" +
-                                                "1. Internet browser\n" +
-                                                "2. Touchpad\n" +
-                                                "3. Central Processing Unit\n" +
-                                                "4. An operating system\n" +
-                                                "5. 1024 bytes\n");
+                                "The Answer is:\n" +
+                                        "1. Internet browser\n" +
+                                        "2. Touchpad\n" +
+                                        "3. Central Processing Unit\n" +
+                                        "4. An operating system\n" +
+                                        "5. 1024 bytes\n");
 
 
                     }
@@ -135,7 +141,7 @@ public class frm_comp_essential extends AppCompatActivity {
     }
 
 
-    public void conditions(){
+    public void conditions() {
 
         rb_a.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +167,7 @@ public class frm_comp_essential extends AppCompatActivity {
     }
 
 
-    public void set_questions(){
+    public void set_questions() {
 
         tv_question.setText(celib.CompEssentialsgetListQuestions(number));
         rb_a.setText(celib.CompEssentialsgetChoicea(number));
@@ -170,18 +176,18 @@ public class frm_comp_essential extends AppCompatActivity {
         answer = celib.CompEssentialsgetCorrectAnswer(number);
         number++;
 
-       rg_choices.clearCheck();
+        rg_choices.clearCheck();
         rb_a.setChecked(false);
         rb_b.setChecked(false);
         rb_c.setChecked(false);
     }
 
-    public void updateScore(int point){
-        tv_score.setText("Score: "+ score);
+    public void updateScore(int point) {
+        tv_score.setText("Score: " + score);
     }
 
 
-    public void showMessage(String title, String message){
+    public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
