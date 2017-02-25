@@ -36,7 +36,6 @@
             android:name=".frm_mysql"
             android:screenOrientation="portrait" />
         <activity android:name=".QuestionHandler" />
-        <activity android:name=".frm_highscore"></activity>
     </application>
 
 </manifest>
